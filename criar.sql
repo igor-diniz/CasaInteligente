@@ -2,12 +2,12 @@
 DROP TABLE IF EXISTS Casa;
 CREATE TABLE Casa
 (
-    idCasa INTEGER NOT NULL,
-    numero INTEGER NOT NULL,
-    endereco TEXT NOT NULL,
-    orientacaoSolar CHAR(2) NOT NULL,
-    qtdComodos INTEGER NOT NULL,
-    CONSTRAINT Casa_PK PRIMARY KEY (idCasa),
+  idCasa INTEGER NOT NULL,
+  numero INTEGER NOT NULL,
+  endereco TEXT NOT NULL,
+  orientacaoSolar CHAR(2) NOT NULL,
+  qtdComodos INTEGER NOT NULL,
+  CONSTRAINT Casa_PK PRIMARY KEY (idCasa),
 );
 
 /*TABELA Morada:*/
@@ -93,9 +93,9 @@ CREATE TABLE Pais
 DROP TABLE IF EXISTS Distrito;
 CREATE TABLE Distrito
 (
+  idDistrito INTEGER NOT NULL,
   nome TEXT NOT NULL,
   nomePais TEXT NOT NULL,
-  idDistrito INTEGER NOT NULL,
   CONSTRAINT Distrito_PK PRIMARY KEY (idDistrito),
   CONSTRAINT Distrito_nomePais_FK1 FOREIGN KEY (nomePais) REFERENCES Pais(nome)
 );
@@ -104,8 +104,8 @@ CREATE TABLE Distrito
 DROP TABLE IF EXISTS Concelho;
 CREATE TABLE Concelho
 (
-  nome TEXT NOT NULL,
   idConcelho INTEGER NOT NULL,
+  nome TEXT NOT NULL,
   idDistrito INTEGER NOT NULL,
   CONSTRAINT Concelho_PK PRIMARY KEY (idConcelho),
   CONSTRAINT Concelho_idDistrito_FK1 FOREIGN KEY (idDistrito) REFERENCES Distrito(idDistrito)
@@ -115,10 +115,10 @@ CREATE TABLE Concelho
 DROP TABLE IF EXISTS Freguesia;
 CREATE TABLE Freguesia
 (
+  idFreguesia INTEGER NOT NULL,
   nome TEXT NOT NULL,
   idConcelho INTEGER NOT NULL,
-  idFreguesia INTEGER NOT NULL,
-  CONSTRAINT Freguesia_PK PRIMARY KEY (idConcelho),
+  CONSTRAINT Freguesia_PK PRIMARY KEY (idFreguesia),
   CONSTRAINT Freguesia_idConcelho_FK1 FOREIGN KEY (idConcelho) REFERENCES Concelho(idConcelho)
 );
 
@@ -126,8 +126,8 @@ CREATE TABLE Freguesia
 DROP TABLE IF EXISTS Utilizador;
 CREATE TABLE Utilizador
 (
-  nome NAME NOT NULL,
   nif INTEGER NOT NULL,
+  nome NAME NOT NULL,
   dob DATE NOT NULL,
   nacionalidade TEXT NOT NULL,
   CONSTRAINT Utilizador_PK PRIMARY KEY (nif),
@@ -227,7 +227,6 @@ CREATE TABLE Acao
   CONSTRAINT Acao_PK PRIMARY KEY (nome)
 );
 
-
 /*Tabela GatilhoAcao:*/
 DROP TABLE IF EXISTS GatilhoAcao;
 CREATE TABLE GatilhoAcao
@@ -324,28 +323,6 @@ CREATE TABLE DispositivoBluetooth
   CONSTRAINT DispositivoBluetooth_idAssistente_FK2 FOREIGN KEY (idAssistente) REFERENCES AssistenteVirtual(idAssistente)
 );
 
-/*Tabela DispositivoWiFi:*/
-DROP TABLE IF EXISTS DispositivoWiFi;
-CREATE TABLE DispositivoWiFi
-(
-  idDispositivo INTEGER NOT NULL,
-  nome TEXT NOT NULL,
-  idModelo INTEGER NOT NULL,
-  CONSTRAINT DispositivoWiFi_PK PRIMARY KEY (idDispositivo),
-  CONSTRAINT DispositivoWiFi_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
-);
-
-/*Tabela DispositivoInfravermelho:*/
-DROP TABLE IF EXISTS DispositivoInfravermelho;
-CREATE TABLE DispositivoInfravermelho
-(
-  idDispositivo INTEGER NOT NULL,
-  nome TEXT NOT NULL,
-  idModelo INTEGER NOT NULL,
-  CONSTRAINT DispositivoInfravermelho_PK PRIMARY KEY (idDispositivo),
-  CONSTRAINT DispositivoInfravermelho_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
-);
-
 /*Tabela EspecificacoesDispositivoBluetooth:*/
 DROP TABLE IF EXISTS EspecificacoesDispositivoBluetooth;
 CREATE TABLE EspecificacoesDispositivoBluetooth
@@ -359,6 +336,17 @@ CREATE TABLE EspecificacoesDispositivoBluetooth
   CONSTRAINT EspecificacoesDispositivoBluetooth_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo),
 );
 
+/*Tabela DispositivoWiFi:*/
+DROP TABLE IF EXISTS DispositivoWiFi;
+CREATE TABLE DispositivoWiFi
+(
+  idDispositivo INTEGER NOT NULL,
+  nome TEXT NOT NULL,
+  idModelo INTEGER NOT NULL,
+  CONSTRAINT DispositivoWiFi_PK PRIMARY KEY (idDispositivo),
+  CONSTRAINT DispositivoWiFi_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
+);
+
 /*Tabela EspecificacoesDispositivosWifi:*/
 DROP TABLE IF EXISTS EspecificacoesDispositivosWifi;
 CREATE TABLE EspecificacoesDispositivoWiFi
@@ -370,6 +358,17 @@ CREATE TABLE EspecificacoesDispositivoWiFi
   frequencia FLOAT NOT NULL,
   CONSTRAINT EspecificacoesDispositivoWiFi_PK PRIMARY KEY (nome, idModelo),
   CONSTRAINT EspecificacoesDispositivoWiFi_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo),
+);
+
+/*Tabela DispositivoInfravermelho:*/
+DROP TABLE IF EXISTS DispositivoInfravermelho;
+CREATE TABLE DispositivoInfravermelho
+(
+  idDispositivo INTEGER NOT NULL,
+  nome TEXT NOT NULL,
+  idModelo INTEGER NOT NULL,
+  CONSTRAINT DispositivoInfravermelho_PK PRIMARY KEY (idDispositivo),
+  CONSTRAINT DispositivoInfravermelho_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
 );
 
 /*Tabela EspecificacoesDispositivoInfravermelho:*/
