@@ -115,9 +115,9 @@ CREATE TABLE Concelho
 DROP TABLE IF EXISTS Freguesia;
 CREATE TABLE Freguesia
 (
+  idFreguesia INTEGER NOT NULL,
   nome TEXT NOT NULL,
   idConcelho INTEGER NOT NULL,
-  idFreguesia INTEGER NOT NULL,
   CONSTRAINT Freguesia_PK PRIMARY KEY (idConcelho),
   CONSTRAINT Freguesia_idConcelho_FK1 FOREIGN KEY (idConcelho) REFERENCES Concelho(idConcelho)
 );
