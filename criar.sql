@@ -179,7 +179,7 @@ CREATE TABLE AssistenteVirtual
   CONSTRAINT AssitenteVirtual_PK PRIMARY KEY (idAssistente),
   CONSTRAINT AssitenteVirtual_idioma_FK1 FOREIGN KEY (idioma) REFERENCES Idioma(idioma),
   CONSTRAINT AssitenteVirtual_idCasa_FK2 FOREIGN KEY (idCasa) REFERENCES Casa(idCasa),
-  CONSTRAINT AssitenteVirtual_idModelo_FK3 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo),
+  CONSTRAINT AssitenteVirtual_idModelo_FK3 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo),
   CONSTRAINT AssitenteVirtual_idAplicacao_FK4 FOREIGN KEY (idAplicacao) REFERENCES Aplicacao(idAplicacao)
 );
 
@@ -192,7 +192,7 @@ CREATE TABLE ComandoInfravermelho
   idModelo INTEGER NOT NULL,
   idAplicacao INTEGER NOT NULL,
   CONSTRAINT ComandoInfravermelho_PK PRIMARY KEY (idComando),
-  CONSTRAINT ComandoInfravermelho_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo),
+  CONSTRAINT ComandoInfravermelho_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo),
   CONSTRAINT ComandoInfravermelho_idAplicacao_FK2 FOREIGN KEY (idAplicacao) REFERENCES Aplicacao(idAplicacao)
 );
 
@@ -205,7 +205,7 @@ CREATE TABLE EspecificacoesComandoInfravermelho
   alcance FLOAT NOT NULL CHECK (alcance >= 0),
   frequencia FLOAT NOT NULL CHECK (frequencia >= 0),
   CONSTRAINT EspecificacoesComandoInfravermelho_PK PRIMARY KEY (nome, idModelo),
-  CONSTRAINT EspecificacoesComandoInfravermelho_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
+  CONSTRAINT EspecificacoesComandoInfravermelho_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
 );
 
 /*TABELA Gatilho :*/
@@ -317,7 +317,7 @@ CREATE TABLE DispositivoBluetooth
   idModelo INTEGER NOT NULL,
   idAssistente INTEGER NOT NULL,
   CONSTRAINT DispositivoBluetooth_PK PRIMARY KEY (idDispositivo),
-  CONSTRAINT DispositivoBluetooth_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo),
+  CONSTRAINT DispositivoBluetooth_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo),
   CONSTRAINT DispositivoBluetooth_idAssistente_FK2 FOREIGN KEY (idAssistente) REFERENCES AssistenteVirtual(idAssistente)
 );
 
@@ -331,7 +331,7 @@ CREATE TABLE EspecificacoesDispositivoBluetooth
   alcance FLOAT NOT NULL,
   velocidadeMax FLOAT NOT NULL,
   CONSTRAINT EspecificacoesDispositivoBluetooth_PK PRIMARY KEY (nome, idModelo),
-  CONSTRAINT EspecificacoesDispositivoBluetooth_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
+  CONSTRAINT EspecificacoesDispositivoBluetooth_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
 );
 
 /*TABELA DispositivoWiFi:*/
@@ -342,7 +342,7 @@ CREATE TABLE DispositivoWifi
   nome TEXT NOT NULL,
   idModelo INTEGER NOT NULL,
   CONSTRAINT DispositivoWifi_PK PRIMARY KEY (idDispositivo),
-  CONSTRAINT DispositivoWifi_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
+  CONSTRAINT DispositivoWifi_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
 );
 
 /*TABELA EspecificacoesDispositivosWifi:*/
@@ -355,7 +355,7 @@ CREATE TABLE EspecificacoesDispositivoWifi
   velocidadeMax FLOAT NOT NULL,
   frequencia FLOAT NOT NULL,
   CONSTRAINT EspecificacoesDispositivoWifi_PK PRIMARY KEY (nome, idModelo),
-  CONSTRAINT EspecificacoesDispositivoWifi_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
+  CONSTRAINT EspecificacoesDispositivoWifi_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
 );
 
 /*TABELA DispositivoInfravermelho:*/
@@ -366,7 +366,7 @@ CREATE TABLE DispositivoInfravermelho
   nome TEXT NOT NULL,
   idModelo INTEGER NOT NULL,
   CONSTRAINT DispositivoInfravermelho_PK PRIMARY KEY (idDispositivo),
-  CONSTRAINT DispositivoInfravermelho_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
+  CONSTRAINT DispositivoInfravermelho_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
 );
 
 /*TABELA EspecificacoesDispositivoInfravermelho:*/
@@ -377,7 +377,7 @@ CREATE TABLE EspecificacoesDispositivoInfravermelho
   idModelo INTEGER NOT NULL,
   frequencia FLOAT NOT NULL,
   CONSTRAINT EspecificacoesDispositivoWifi_PK PRIMARY KEY (nome, idModelo),
-  CONSTRAINT EspecificacoesDispositivoWifi_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
+  CONSTRAINT EspecificacoesDispositivoWifi_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
 );
 
 /*TABELA DispositivoInfraComando:*/
