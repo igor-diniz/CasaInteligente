@@ -15,10 +15,10 @@ INSERT INTO Gatilho(condicao) values ('comando de voz');
 INSERT INTO Gatilho(condicao) values ('temperatura');
 INSERT INTO Gatilho(condicao) values ('movimento');
 INSERT INTO Acao values ('ligar luzes');
-INSERT INTO Acao values ('ligar ar condicionado');
-INSERT INTO Acao values ('ligar TV');
+INSERT INTO Acao values ('ligar ar-condicionado');
+INSERT INTO Acao values ('ligar TV');.
 INSERT INTO Acao Values ('desligar luzes');
-INSERT INTO Acao Values ('desligar ar condicionado');
+INSERT INTO Acao Values ('desligar ar-condicionado');
 INSERT INTO Marca(nome) Values ('Apple');
 INSERT INTO Marca(nome) Values ('Microsoft');
 INSERT INTO Marca(nome) Values ('Amazon');
@@ -79,6 +79,7 @@ INSERT INTO Modelo values(9, 'Nanoleaf Essentials A19 E27', 'Apple');
 INSERT INTO Modelo values(10, 'Interruptor Táctil Duplo Smart Wifi Modern', 'Google');
 INSERT INTO Modelo values(11, 'Sensor Smart WiFi Detecção Abertura de Portas e Janelas', 'Google');
 INSERT INTO Modelo values(12, 'LG ThinQ Ar-Condicionado', 'LG');
+INSERT INTO Modelo values(13, 'LG ThinQ Ar-Condicionado', 'LG');
 INSERT INTO AssistenteVirtual values(1, 'Google Assistant', 'Português', 5, 1, 3, 3);
 INSERT INTO AssistenteVirtual values(2, 'Google Assistant', 'Inglês', 7, 2, 3, 3);
 INSERT INTO AssistenteVirtual values(3, 'Alexa', 'Inglês', 10, 3, 2, 2);
@@ -103,7 +104,8 @@ INSERT INTO DispositivoWiFi(nome,idModelo) values('TV',6);
 INSERT INTO DispositivoWiFi(nome,idModelo) values('TV',7);
 INSERT INTO DispositivoWIFI(nome,idModelo) values('Interruptor',10);
 INSERT INTO DispositivoWIFI(nome,idModelo) values('Sensor',11);
-INSERT INTO EspecificacoesDispositivoInfravermelho(nome, idModelo , alcance, velocidadeMax, frequencia) values()
+INSERT INTO EspecificacoesDispositivoInfravermelho(nome, idModelo ,frequencia) values('Ar-Condicionado',12,2450);
+INSERT INTO EspecificacoesDispositivoInfravermelho(nome, idModelo ,frequencia) values('Caixa de som',12,2450);
 INSERT INTO DispositivoBluetooth(nome,idModelo,idAssistente) values('Lâmpada',8,3);
 INSERT INTO DispositivoBluetooth(nome,idModelo,idAssistente) values('Lâmpada',9,4);
 
