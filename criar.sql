@@ -1,3 +1,5 @@
+/*TABELA Casa:*/
+DROP TABLE IF EXISTS Casa;
 CREATE TABLE Casa
 (
   idCasa INTEGER NOT NULL,
@@ -9,7 +11,7 @@ CREATE TABLE Casa
 );
 
 /*TABELA Morada:*/
-
+DROP TABLE IF EXISTS Morada;
 CREATE TABLE Morada
 (
   numero INTEGER NOT NULL,
@@ -22,6 +24,7 @@ CREATE TABLE Morada
 
 /*TABELA Grupo:*/
 
+DROP TABLE IF EXISTS Grupo;
 CREATE TABLE Grupo
 (
   idGrupo INTEGER NOT NULL,
@@ -34,6 +37,7 @@ CREATE TABLE Grupo
 
 /*TABELA GrupoDispositivoBluetooth:*/
 
+DROP TABLE IF EXISTS DispositivoBluetooth;
 CREATE TABLE GrupoDispositivoBluetooth
 (
   idGrupo INTEGER NOT NULL,
@@ -44,7 +48,7 @@ CREATE TABLE GrupoDispositivoBluetooth
 );
 
 /*TABELA GrupoDispositivoWifi:*/
-
+DROP TABLE IF EXISTS GrupoDispositivoWifi;
 CREATE TABLE GrupoDispositivoWifi
 (
   idGrupo INTEGER NOT NULL,
@@ -55,7 +59,7 @@ CREATE TABLE GrupoDispositivoWifi
 );
 
 /*TABELA GrupoDispositivoInfravermelho:*/
-
+DROP TABLE IF EXISTS GrupoDispositivoInfravermelho;
 CREATE TABLE GrupoDispositivoInfravermelho
 (
   idGrupo INTEGER NOT NULL,
@@ -67,7 +71,7 @@ CREATE TABLE GrupoDispositivoInfravermelho
 
 
 /*TABELA CasaUtilizador:*/
-
+DROP TABLE IF EXISTS CasaUtilizador;
 CREATE TABLE CasaUtilizador
 (
   idCasa INTEGER NOT NULL,
@@ -78,7 +82,7 @@ CREATE TABLE CasaUtilizador
 );
 
 /*TABELA Pais:*/
-
+DROP TABLE IF EXISTS Pais;
 CREATE TABLE Pais
 (
   nome TEXT NOT NULL,
@@ -86,7 +90,7 @@ CREATE TABLE Pais
 );
 
 /*TABELA Distrito:*/
-
+DROP TABLE IF EXISTS Distrito;
 CREATE TABLE Distrito
 (
   nome TEXT NOT NULL,
@@ -97,7 +101,7 @@ CREATE TABLE Distrito
 );
 
 /*TABELA Concelho:*/
-
+DROP TABLE IF EXISTS Concelho;
 CREATE TABLE Concelho
 (
   nome TEXT NOT NULL,
@@ -108,7 +112,7 @@ CREATE TABLE Concelho
 );
 
 /*TABELA Freguesia:*/
-
+DROP TABLE IF EXISTS Freguesia;
 CREATE TABLE Freguesia
 (
   nome TEXT NOT NULL,
@@ -119,7 +123,7 @@ CREATE TABLE Freguesia
 );
 
 /*TABELA Utilizador :*/
-
+DROP TABLE IF EXISTS Utilizador;
 CREATE TABLE Utilizador
 (
   nome NAME NOT NULL,
@@ -132,7 +136,7 @@ CREATE TABLE Utilizador
 
 
 /*TABELA TipoUtilizador:*/
-
+DROP TABLE IF EXISTS TipoUtilizador;
 CREATE TABLE TipoUtilizador
 (
   nif INTEGER NOT NULL,
@@ -144,7 +148,7 @@ CREATE TABLE TipoUtilizador
 );
 
 /*TABELA Idioma:*/
-
+DROP TABLE IF EXISTS Idioma;
 CREATE TABLE Idioma
 (
   nome TEXT NOT NULL,
@@ -152,7 +156,7 @@ CREATE TABLE Idioma
 );
 
 /*Tabela Aplicacao:*/
-
+DROP TABLE IF EXISTS Aplicacao;
 CREATE TABLE Aplicacao
 (
   idAplicacao INTEGER NOT NULL,
@@ -164,8 +168,8 @@ CREATE TABLE Aplicacao
 );
 
 /*TABELA AssitenteVirtual :*/
-
-CREATE TABLE AssitenteVirtual
+DROP TABLE IF EXISTS AssistanteVirtual;
+CREATE TABLE AssistenteVirtual
 (
   idAssistente INTEGER NOT NULL,
   nome TEXT NOT NULL,
@@ -182,7 +186,7 @@ CREATE TABLE AssitenteVirtual
 );
 
 /*TABELA ComandoInfravermelho :*/
-
+DROP TABLE IF EXISTS ComandoInfravermelho;
 CREATE TABLE ComandoInfravermelho
 (
   idComando INTEGER NOT NULL,
@@ -195,7 +199,7 @@ CREATE TABLE ComandoInfravermelho
 );
 
 /*TABELA EspecificacoesComandoInfravermelho :*/
-
+DROP TABLE IF EXISTS EspecificacoesComandoInfravermelho;
 CREATE TABLE EspecificacoesComandoInfravermelho
 (
   nome TEXT NOT NULL,
@@ -207,7 +211,7 @@ CREATE TABLE EspecificacoesComandoInfravermelho
 );
 
 /*TABELA Gatilho :*/
-
+DROP TABLE IF EXISTS Gatilho;
 CREATE TABLE Gatilho
 (
   idGatilho INTEGER NOT NULL,
@@ -216,7 +220,7 @@ CREATE TABLE Gatilho
 );
 
 /*TABELA Acao:*/
-
+DROP TABLE IF EXISTS Acao;
 CREATE TABLE Acao
 (
   nome TEXT NOT NULL,
@@ -226,8 +230,8 @@ CREATE TABLE Acao
 
 
 /*Tabela GatilhoAcao:*/
-
-CREATE TABLE Aplicacao
+DROP TABLE IF EXISTS GatilhoAplicacao;
+CREATE TABLE GatilhoAplicacao
 (
   idGatilho INTEGER NOT NULL,
   nomeAcao TEXT NOT NULL,
@@ -237,7 +241,7 @@ CREATE TABLE Aplicacao
 );
 
 /*TABELA Modelo:*/
-
+DROP TABLE IF EXISTS Modelo;
 CREATE TABLE Modelo
 (
   idModelo INTEGER NOT NULL,
@@ -248,7 +252,7 @@ CREATE TABLE Modelo
 );
 
 /*TABELA Marca:*/
-
+DROP TABLE IF EXISTS Marca;
 CREATE TABLE Marca
 (
   nome TEXT NOT NULL,
@@ -257,7 +261,7 @@ CREATE TABLE Marca
 );
 
 /*Tabela DispositivoBluetoothAcaoAssistente:*/
-
+DROP TABLE IF EXISTS DispositivoBluetoothAcaoAssistente;
 CREATE TABLE DispositivoBluetoothAcaoAssistente
 (
   idDispositivo INTEGER NOT NULL,
@@ -271,7 +275,7 @@ CREATE TABLE DispositivoBluetoothAcaoAssistente
 
 
 /*Tabela DispositivoWiFiAcaoAssistente:*/
-
+DROP TABLE IF EXISTS DispositivoWiFiAcaoAssistente;
 CREATE TABLE DispositivoWiFiAcaoAssistente
 (
   idDispositivo INTEGER NOT NULL,
@@ -284,7 +288,7 @@ CREATE TABLE DispositivoWiFiAcaoAssistente
 );
 
 /*Tabela DispositivoInfravermelhoAcaoAssistente:*/
-
+DROP TABLE IF EXISTS DispositivoInfravermelhoAcaoAssistente;
 CREATE TABLE DispositivoInfravermelhoAcaoAssistente
 (
   idDispositivo INTEGER NOT NULL,
@@ -298,7 +302,7 @@ CREATE TABLE DispositivoInfravermelhoAcaoAssistente
 
 
 /*Tabela WifiAplicacao:*/
-
+DROP TABLE IF EXISTS WifiAplicacao;
 CREATE TABLE WifiAplicacao
 (
   idDispositivo INTEGER NOT NULL,
@@ -309,7 +313,7 @@ CREATE TABLE WifiAplicacao
 );
 
 /*Tabela DispositivoBluetooth:*/
-
+DROP TABLE IF EXISTS DispositivoBluetooth;
 CREATE TABLE DispositivoBluetooth
 (
   idDispositivo INTEGER NOT NULL,
@@ -322,7 +326,7 @@ CREATE TABLE DispositivoBluetooth
 );
 
 /*Tabela DispositivoWiFi:*/
-
+DROP TABLE IF EXISTS DispositivoWiFi;
 CREATE TABLE DispositivoWiFi
 (
   idDispositivo INTEGER NOT NULL,
@@ -333,7 +337,7 @@ CREATE TABLE DispositivoWiFi
 );
 
 /*Tabela DispositivoInfravermelho:*/
-
+DROP TABLE IF EXISTS DispositivoInfravermelho;
 CREATE TABLE DispositivoInfravermelho
 (
   idDispositivo INTEGER NOT NULL,
@@ -344,7 +348,7 @@ CREATE TABLE DispositivoInfravermelho
 );
 
 /*Tabela EspecificacoesDispositivoBluetooth:*/
-
+DROP TABLE IF EXISTS EspecificacoesDispositivoBluetooth;
 CREATE TABLE EspecificacoesDispositivoBluetooth
 (
   nome TEXT NOT NULL,
@@ -357,7 +361,7 @@ CREATE TABLE EspecificacoesDispositivoBluetooth
 );
 
 /*Tabela EspecificacoesDispositivosWifi:*/
-
+DROP TABLE IF EXISTS EspecificacoesDispositivosWifi;
 CREATE TABLE EspecificacoesDispositivoWiFi
 (
   nome TEXT NOT NULL,
@@ -370,7 +374,7 @@ CREATE TABLE EspecificacoesDispositivoWiFi
 );
 
 /*Tabela EspecificacoesDispositivoInfravermelho:*/
-
+DROP TABLE IF EXISTS EspecificacoesDispositivoInfravermelho;
 CREATE TABLE EspecificacoesDispositivoInfravermelho
 (
   nome TEXT NOT NULL,
@@ -381,7 +385,7 @@ CREATE TABLE EspecificacoesDispositivoInfravermelho
 );
 
 /*Tabela DispositivoInfraComando:*/
-
+DROP TABLE IF EXISTS DispositivoInfraComando;
 CREATE TABLE DispositivoInfraComando
 (
   idDispositivo INTEGER NOT NULL,
