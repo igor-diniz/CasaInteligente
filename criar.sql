@@ -155,7 +155,7 @@ CREATE TABLE Idioma
   CONSTRAINT Idioma_PK PRIMARY KEY (nome)
 );
 
-/*Tabela Aplicacao:*/
+/*TABELA Aplicacao:*/
 DROP TABLE IF EXISTS Aplicacao;
 CREATE TABLE Aplicacao
 (
@@ -227,7 +227,7 @@ CREATE TABLE Acao
   CONSTRAINT Acao_PK PRIMARY KEY (nome)
 );
 
-/*Tabela GatilhoAcao:*/
+/*TABELA GatilhoAcao:*/
 DROP TABLE IF EXISTS GatilhoAcao;
 CREATE TABLE GatilhoAcao
 (
@@ -258,7 +258,7 @@ CREATE TABLE Marca
   CONSTRAINT Marca_PK PRIMARY KEY (idMarca)
 );
 
-/*Tabela DispositivoBluetoothAcaoAssistente:*/
+/*TABELA DispositivoBluetoothAcaoAssistente:*/
 DROP TABLE IF EXISTS DispositivoBluetoothAcaoAssistente;
 CREATE TABLE DispositivoBluetoothAcaoAssistente
 (
@@ -272,7 +272,7 @@ CREATE TABLE DispositivoBluetoothAcaoAssistente
 );
 
 
-/*Tabela DispositivoWiFiAcaoAssistente:*/
+/*TABELA DispositivoWiFiAcaoAssistente:*/
 DROP TABLE IF EXISTS DispositivoWifiAcaoAssistente;
 CREATE TABLE DispositivoWifiAcaoAssistente
 (
@@ -285,7 +285,7 @@ CREATE TABLE DispositivoWifiAcaoAssistente
   CONSTRAINT DispositivoWifiAcaoAssistente_idAssistente_FK3 FOREIGN KEY (idAssistente) REFERENCES AssistenteVirtual(idAssistente)
 );
 
-/*Tabela DispositivoInfravermelhoAcaoAssistente:*/
+/*TABELA DispositivoInfravermelhoAcaoAssistente:*/
 DROP TABLE IF EXISTS DispositivoInfravermelhoAcaoAssistente;
 CREATE TABLE DispositivoInfravermelhoAcaoAssistente
 (
@@ -299,7 +299,7 @@ CREATE TABLE DispositivoInfravermelhoAcaoAssistente
 );
 
 
-/*Tabela WifiAplicacao:*/
+/*TABELA WifiAplicacao:*/
 DROP TABLE IF EXISTS WifiAplicacao;
 CREATE TABLE WifiAplicacao
 (
@@ -310,7 +310,7 @@ CREATE TABLE WifiAplicacao
   CONSTRAINT WifiAplicacao_idAplicacao_FK2 FOREIGN KEY (idAplicacao) REFERENCES Aplicacao(idAplicacao)
 );
 
-/*Tabela DispositivoBluetooth:*/
+/*TABELA DispositivoBluetooth:*/
 DROP TABLE IF EXISTS DispositivoBluetooth;
 CREATE TABLE DispositivoBluetooth
 (
@@ -323,7 +323,7 @@ CREATE TABLE DispositivoBluetooth
   CONSTRAINT DispositivoBluetooth_idAssistente_FK2 FOREIGN KEY (idAssistente) REFERENCES AssistenteVirtual(idAssistente)
 );
 
-/*Tabela EspecificacoesDispositivoBluetooth:*/
+/*TABELA EspecificacoesDispositivoBluetooth:*/
 DROP TABLE IF EXISTS EspecificacoesDispositivoBluetooth;
 CREATE TABLE EspecificacoesDispositivoBluetooth
 (
@@ -336,7 +336,7 @@ CREATE TABLE EspecificacoesDispositivoBluetooth
   CONSTRAINT EspecificacoesDispositivoBluetooth_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo),
 );
 
-/*Tabela DispositivoWiFi:*/
+/*TABELA DispositivoWiFi:*/
 DROP TABLE IF EXISTS DispositivoWifi;
 CREATE TABLE DispositivoWifi
 (
@@ -347,7 +347,7 @@ CREATE TABLE DispositivoWifi
   CONSTRAINT DispositivoWifi_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
 );
 
-/*Tabela EspecificacoesDispositivosWifi:*/
+/*TABELA EspecificacoesDispositivosWifi:*/
 DROP TABLE IF EXISTS EspecificacoesDispositivosWifi;
 CREATE TABLE EspecificacoesDispositivoWifi
 (
@@ -360,7 +360,7 @@ CREATE TABLE EspecificacoesDispositivoWifi
   CONSTRAINT EspecificacoesDispositivoWifi_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo),
 );
 
-/*Tabela DispositivoInfravermelho:*/
+/*TABELA DispositivoInfravermelho:*/
 DROP TABLE IF EXISTS DispositivoInfravermelho;
 CREATE TABLE DispositivoInfravermelho
 (
@@ -371,7 +371,7 @@ CREATE TABLE DispositivoInfravermelho
   CONSTRAINT DispositivoInfravermelho_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
 );
 
-/*Tabela EspecificacoesDispositivoInfravermelho:*/
+/*TABELA EspecificacoesDispositivoInfravermelho:*/
 DROP TABLE IF EXISTS EspecificacoesDispositivoInfravermelho;
 CREATE TABLE EspecificacoesDispositivoInfravermelho
 (
@@ -382,7 +382,7 @@ CREATE TABLE EspecificacoesDispositivoInfravermelho
   CONSTRAINT EspecificacoesDispositivoWifi_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo),
 );
 
-/*Tabela DispositivoInfraComando:*/
+/*TABELA DispositivoInfraComando:*/
 DROP TABLE IF EXISTS DispositivoInfraComando;
 CREATE TABLE DispositivoInfraComando
 (
