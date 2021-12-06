@@ -126,8 +126,8 @@ CREATE TABLE Freguesia
 DROP TABLE IF EXISTS Utilizador;
 CREATE TABLE Utilizador
 (
-  nome NAME NOT NULL,
   nif INTEGER NOT NULL,
+  nome NAME NOT NULL,
   dob DATE NOT NULL,
   nacionalidade TEXT NOT NULL,
   CONSTRAINT Utilizador_PK PRIMARY KEY (nif),
