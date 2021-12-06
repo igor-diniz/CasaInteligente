@@ -7,7 +7,7 @@ CREATE TABLE Casa
   endereco TEXT NOT NULL,
   orientacaoSolar CHAR(2) NOT NULL,
   qtdComodos INTEGER NOT NULL,
-  CONSTRAINT Casa_PK PRIMARY KEY (idCasa),
+  CONSTRAINT Casa_PK PRIMARY KEY (idCasa)
 );
 
 /*TABELA Morada:*/
@@ -23,7 +23,6 @@ CREATE TABLE Morada
 );
 
 /*TABELA Grupo:*/
-
 DROP TABLE IF EXISTS Grupo;
 CREATE TABLE Grupo
 (
@@ -47,7 +46,6 @@ CREATE TABLE GrupoDispositivoWifi
 );
 
 /*TABELA GrupoDispositivoBluetooth:*/
-
 DROP TABLE IF EXISTS DispositivoBluetooth;
 CREATE TABLE GrupoDispositivoBluetooth
 (
@@ -333,7 +331,7 @@ CREATE TABLE EspecificacoesDispositivoBluetooth
   alcance FLOAT NOT NULL,
   velocidadeMax FLOAT NOT NULL,
   CONSTRAINT EspecificacoesDispositivoBluetooth_PK PRIMARY KEY (nome, idModelo),
-  CONSTRAINT EspecificacoesDispositivoBluetooth_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo),
+  CONSTRAINT EspecificacoesDispositivoBluetooth_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
 );
 
 /*TABELA DispositivoWiFi:*/
@@ -357,7 +355,7 @@ CREATE TABLE EspecificacoesDispositivoWifi
   velocidadeMax FLOAT NOT NULL,
   frequencia FLOAT NOT NULL,
   CONSTRAINT EspecificacoesDispositivoWifi_PK PRIMARY KEY (nome, idModelo),
-  CONSTRAINT EspecificacoesDispositivoWifi_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo),
+  CONSTRAINT EspecificacoesDispositivoWifi_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
 );
 
 /*TABELA DispositivoInfravermelho:*/
@@ -379,7 +377,7 @@ CREATE TABLE EspecificacoesDispositivoInfravermelho
   idModelo INTEGER NOT NULL,
   frequencia FLOAT NOT NULL,
   CONSTRAINT EspecificacoesDispositivoWifi_PK PRIMARY KEY (nome, idModelo),
-  CONSTRAINT EspecificacoesDispositivoWifi_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo),
+  CONSTRAINT EspecificacoesDispositivoWifi_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
 );
 
 /*TABELA DispositivoInfraComando:*/
