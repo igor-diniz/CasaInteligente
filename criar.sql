@@ -93,9 +93,9 @@ CREATE TABLE Pais
 DROP TABLE IF EXISTS Distrito;
 CREATE TABLE Distrito
 (
+  idDistrito INTEGER NOT NULL,
   nome TEXT NOT NULL,
   nomePais TEXT NOT NULL,
-  idDistrito INTEGER NOT NULL,
   CONSTRAINT Distrito_PK PRIMARY KEY (idDistrito),
   CONSTRAINT Distrito_nomePais_FK1 FOREIGN KEY (nomePais) REFERENCES Pais(nome)
 );
@@ -104,7 +104,6 @@ CREATE TABLE Distrito
 DROP TABLE IF EXISTS Concelho;
 CREATE TABLE Concelho
 (
-  nome TEXT NOT NULL,
   idConcelho INTEGER NOT NULL,
   idDistrito INTEGER NOT NULL,
   CONSTRAINT Concelho_PK PRIMARY KEY (idConcelho),
@@ -126,7 +125,6 @@ CREATE TABLE Freguesia
 DROP TABLE IF EXISTS Utilizador;
 CREATE TABLE Utilizador
 (
-  nome NAME NOT NULL,
   nif INTEGER NOT NULL,
   dob DATE NOT NULL,
   nacionalidade TEXT NOT NULL,
@@ -226,7 +224,6 @@ CREATE TABLE Acao
   nome TEXT NOT NULL,
   CONSTRAINT Acao_PK PRIMARY KEY (nome)
 );
-
 
 /*Tabela GatilhoAcao:*/
 DROP TABLE IF EXISTS GatilhoAcao;
