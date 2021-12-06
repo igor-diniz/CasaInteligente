@@ -1,4 +1,5 @@
 PRAGMA foreign_keys = ON;
+.read criar.sql
 INSERT INTO Pais values('Portugal');
 INSERT INTO Pais values('Brasil');
 INSERT INTO Pais values('Estados Unidos');
@@ -23,6 +24,9 @@ INSERT INTO Marca(nome) Values ('Microsoft');
 INSERT INTO Marca(nome) Values ('Amazon');
 INSERT INTO Marca(nome) Values ('Google');
 INSERT INTO Marca(nome) Values ('Xiaomi');
+INSERT INTO Marca(nome) Values ('Samsung');
+INSERT INTO Marca(nome) Values ('Tuya');
+INSERT INTO Marca(nome) Values ('LG');
 INSERT INTO Morada Values('rua da areosa', 155, 4200083, 'Portugal');
 INSERT INTO Morada Values('rua da areosa', 130, 4200089, 'Portugal');
 INSERT INTO Morada Values('arquiteto lobão vital', 25, 4815549, 'Portugal');
@@ -47,6 +51,7 @@ INSERT INTO Aplicacao(nome, versao, idioma) values('Amazon Alexa', '2.2.448943.0
 INSERT INTO Aplicacao(nome, versao, idioma) values('Google Home', '2.46.106', 'Espanhol');
 INSERT INTO Aplicacao(nome, versao, idioma) values('Apple Siri', '8.3', 'Inglês');
 INSERT INTO Aplicacao(nome, versao, idioma) values('Microsoft Cortana', '2.9.11.2037', 'Portugês');
+INSERT INTO Aplicacao(nome, versao, idioma) values('Tuya Smart', '3.33.1', 'Portugês');
 INSERT INTO Distrito values(1, 'Porto', 'Portugal');
 INSERT INTO Distrito values(2, 'Braga', 'Portugal');
 INSERT INTO Distrito values(3, 'Ceará', 'Brasil');
@@ -67,6 +72,13 @@ INSERT INTO Modelo values(2, 'Dot 3ª Geração', 'Amazon');
 INSERT INTO Modelo values(3, 'Nest Mini Tiza', 'Google');
 INSERT INTO Modelo values(4, 'Mi Smart Home Hub', 'Xiaomi');
 INSERT INTO Modelo values(5, 'Cortana Home', 'Microsoft');
+INSERT INTO Modelo values(6, 'Smart TV QLED 65"', 'Samsung');
+INSERT INTO Modelo values(7, 'P1 SmartTV 4K UHD 43″', 'Xiaomi');
+INSERT INTO Modelo values(8, 'Mi LED Smart Bulb Essential', 'Xiaomi');
+INSERT INTO Modelo values(9, 'Nanoleaf Essentials A19 E27', 'Apple');
+INSERT INTO Modelo values(10, 'Interruptor Táctil Duplo Smart Wifi Modern', 'Google');
+INSERT INTO Modelo values(11, 'Sensor Smart WiFi Detecção Abertura de Portas e Janelas', 'Google');
+INSERT INTO Modelo values(12, 'LG ThinQ Ar-Condicionado', 'LG');
 INSERT INTO AssistenteVirtual values(1, 'Google Assistant', 'Português', 5, 1, 3, 3);
 INSERT INTO AssistenteVirtual values(2, 'Google Assistant', 'Inglês', 7, 2, 3, 3);
 INSERT INTO AssistenteVirtual values(3, 'Alexa', 'Inglês', 10, 3, 2, 2);
@@ -77,3 +89,21 @@ INSERT INTO CasaUtilizador values(2, 744584663);
 INSERT INTO CasaUtilizador values(2, 908361726);
 INSERT INTO CasaUtilizador values(3, 643375570);
 INSERT INTO CasaUtilizador values(4, 643375570);
+INSERT INTO TipoUtilizador(nif,idAplicacao) values(902854879, 2);
+INSERT INTO TipoUtilizador(nif,idAplicacao) values(643375570, 2)
+INSERT INTO TipoUtilizador(nif,idAplicacao) values(782459137, 1)
+INSERT INTO TipoUtilizador(nif,idAplicacao) values(908361726, 4)
+INSERT INTO TipoUtilizador values(744584663, 2, 1);
+INSERT INTO EspecificacoesDispositivoWiFi(nome,idModelo,alcance,velocidadeMax,frequencia) values ('TV',6, 10, 100, 60);
+INSERT INTO EspecificacoesDispositivoWiFi(nome,idModelo,alcance,velocidadeMax,frequencia) values ('TV',7, 12, 200, 60);
+INSERT INTO EspecificacoesDispositivoWiFi(nome,idModelo,alcance,frequencia) values ('Interruptor',10, 8, 60);
+INSERT INTO EspecificacoesDispositivoWiFi(nome,idModelo,alcance,frequencia) values ('Sensor',11, 30, 50);
+INSERT INTO DispositivoWiFi(nome,idModelo) values('TV',6);
+INSERT INTO DispositivoWiFi(nome,idModelo) values('TV',6);
+INSERT INTO DispositivoWiFi(nome,idModelo) values('TV',7);
+INSERT INTO DispositivoWIFI(nome,idModelo) values('Interruptor',10);
+INSERT INTO DispositivoWIFI(nome,idModelo) values('Sensor',11);
+INSERT INTO EspecificacoesDispositivoInfravermelho(nome, idModelo , alcance, velocidadeMax, frequencia) values()
+INSERT INTO DispositivoBluetooth(nome,idModelo,idAssistente) values('Lâmpada',8,3);
+INSERT INTO DispositivoBluetooth(nome,idModelo,idAssistente) values('Lâmpada',9,4);
+
