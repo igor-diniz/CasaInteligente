@@ -174,10 +174,10 @@ CREATE TABLE AssistenteVirtual
   idAssistente INTEGER NOT NULL,
   nome TEXT NOT NULL,
   idioma TEXT NOT NULL,
+  qtdDispositivosAssociados INTEGER NOT NULL,
   idCasa INTEGER NOT NULL,
   idModelo INTEGER NOT NULL,
   idAplicacao INTEGER NOT NULL,
-  qtdDispositivosAssociados INTEGER NOT NULL,
   CONSTRAINT AssitenteVirtual_PK PRIMARY KEY (idAssistente),
   CONSTRAINT AssitenteVirtual_idioma_FK1 FOREIGN KEY (idioma) REFERENCES Idioma(idioma),
   CONSTRAINT AssitenteVirtual_idCasa_FK2 FOREIGN KEY (idCasa) REFERENCES Casa(idCasa),
@@ -307,7 +307,7 @@ CREATE TABLE WifiAplicacao
 (
   idDispositivo INTEGER NOT NULL,
   idAplicacao INTEGER NOT NULL,
-  CONSTRAINT WifiAplicacao_PK PRIMARY KEY (idGatilho, nomeAcao),
+  CONSTRAINT WifiAplicacao_PK PRIMARY KEY (idDispositivo, idAplicacao),
   CONSTRAINT WifiAplicacao_idDispositivo_FK1 FOREIGN KEY (idDispositivo) REFERENCES DispositivoWIFI(idDispositivo),
   CONSTRAINT WifiAplicacao_idAplicacao_FK2 FOREIGN KEY (idAplicacao) REFERENCES Aplicacao(idAplicacao)
 );
@@ -366,9 +366,9 @@ CREATE TABLE EspecificacoesDispositivoWiFi
 (
   nome TEXT NOT NULL,
   idModelo INTEGER NOT NULL,
-  frequencia FLOAT NOT NULL,
   alcance FLOAT NOT NULL,
   velocidadeMax FLOAT NOT NULL,
+  frequencia FLOAT NOT NULL,
   CONSTRAINT EspecificacoesDispositivoWiFi_PK PRIMARY KEY (nome, idModelo),
   CONSTRAINT EspecificacoesDispositivoWiFi_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo),
 );
