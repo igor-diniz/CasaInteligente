@@ -29,10 +29,9 @@ CREATE TABLE Grupo
 (
   idGrupo INTEGER NOT NULL,
   nome TEXT NOT NULL,
-  qtdDispositivosAssociados INTEGER NOT NULL,
+  qtdDispositivosAssociados INTEGER NOT NULL CHECK (qtdDispositivosAssociados >= 0),
   idCasa INTEGER NOT NULL,
   CONSTRAINT Grupo_PK PRIMARY KEY (idGrupo),
-  CONSTRAINT TRAINING CHECK (TRAININGTIME IS NULL OR TRAININGPOS IS NOT NULL),
   CONSTRAINT Grupo_idCasa_FK1 FOREIGN KEY (idCasa) REFERENCES Casa(idCasa)
 );
 
@@ -205,8 +204,8 @@ CREATE TABLE EspecificacoesComandoInfravermelho
 (
   nome TEXT NOT NULL,
   idModelo INTEGER NOT NULL,
-  alcance FLOAT NOT NULL,
-  frequencia FLOAT NOT NULL,
+  alcance FLOAT NOT NULL CHECK (alcance >= 0),
+  frequencia FLOAT NOT NULL CHECK (frequencia >= 0),
   CONSTRAINT EspecificacoesComandoInfravermelho_PK PRIMARY KEY (nome, idModelo),
   CONSTRAINT EspecificacoesComandoInfravermelho_idModelo_FK1 FOREIGN KEY (idMolelo) REFERENCES Modelo(idModelo)
 );
@@ -227,7 +226,6 @@ CREATE TABLE Acao
   nome TEXT NOT NULL,
   CONSTRAINT Acao_PK PRIMARY KEY (nome)
 );
-
 
 
 /*Tabela GatilhoAcao:*/
@@ -354,7 +352,7 @@ CREATE TABLE EspecificacoesDispositivoBluetooth
 (
   nome TEXT NOT NULL,
   idModelo INTEGER NOT NULL,
-  versaoBluetooth FLOAT NOT NULL,
+  versaoBluetooth TEXT NOT NULL,
   alcance FLOAT NOT NULL,
   velocidadeMax FLOAT NOT NULL,
   CONSTRAINT EspecificacoesDispositivoBluetooth_PK PRIMARY KEY (nome, idModelo),
