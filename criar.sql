@@ -32,6 +32,7 @@ CREATE TABLE Grupo
   qtdDispositivosAssociados INTEGER NOT NULL,
   idCasa INTEGER NOT NULL,
   CONSTRAINT Grupo_PK PRIMARY KEY (idGrupo),
+  CONSTRAINT TRAINING CHECK (TRAININGTIME IS NULL OR TRAININGPOS IS NOT NULL),
   CONSTRAINT Grupo_idCasa_FK1 FOREIGN KEY (idCasa) REFERENCES Casa(idCasa)
 );
 
@@ -115,9 +116,9 @@ CREATE TABLE Concelho
 DROP TABLE IF EXISTS Freguesia;
 CREATE TABLE Freguesia
 (
-  idFreguesia INTEGER NOT NULL,
   nome TEXT NOT NULL,
   idConcelho INTEGER NOT NULL,
+  idFreguesia INTEGER NOT NULL,
   CONSTRAINT Freguesia_PK PRIMARY KEY (idConcelho),
   CONSTRAINT Freguesia_idConcelho_FK1 FOREIGN KEY (idConcelho) REFERENCES Concelho(idConcelho)
 );
@@ -126,8 +127,8 @@ CREATE TABLE Freguesia
 DROP TABLE IF EXISTS Utilizador;
 CREATE TABLE Utilizador
 (
-  nif INTEGER NOT NULL,
   nome NAME NOT NULL,
+  nif INTEGER NOT NULL,
   dob DATE NOT NULL,
   nacionalidade TEXT NOT NULL,
   CONSTRAINT Utilizador_PK PRIMARY KEY (nif),
