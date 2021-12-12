@@ -81,7 +81,7 @@ INSERT INTO Morada (endereco, numero, codigoPostal) VALUES
 ('avenida capitão nascimento', 254, '30390'), 
 ('rua ian jumas', 169, '40028922'), 
 ('rua da base de dados', 185, '123789'), 
-('avenida Abelardo Bueno', 2510, '22775040');
+('avenida abelardo bueno', 2510, '22775040');
 
 --INSERT Casa
 INSERT INTO Casa (idCasa, endereco, numero, orientacaoSolar, qtdComodos) VALUES 
@@ -95,7 +95,7 @@ INSERT INTO Casa (idCasa, endereco, numero, orientacaoSolar, qtdComodos) VALUES
 (8, 'avenida capitão nascimento', 254, 'O', 4), 
 (9, 'rua ian jumas', 169, 'O', 4), 
 (10, 'rua da base de dados', 185, 'O', 4), 
-(11, 'avenida Abelardo Bueno', 2510, 'SE', 5);
+(11, 'avenida abelardo bueno', 2510, 'SE', 5);
 
 --INSERT Utilizador
 INSERT INTO Utilizador (nif, nome, dob, nacionalidade) VALUES 
