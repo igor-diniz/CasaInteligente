@@ -8,6 +8,11 @@ INSERT INTO Pais VALUES
 ('Brasil'),
 ('Estados Unidos'),
 ('França'),
+('Alemanha'),
+('Argentina'),
+('Bolivia'),
+('Espanha'),
+('Angola'),
 ('China');
 
 --INSERT Distrito
@@ -16,7 +21,12 @@ INSERT INTO Distrito VALUES
 (2, 'Braga', 'Portugal'),
 (3, 'Ceará', 'Brasil'),
 (4, 'Texas', 'Estados Unidos'),
-(5, 'Ilha de França', 'França');
+(5, 'Ilha de França', 'França'),
+(6, 'Aveiro', 'Portugal'),
+(7, 'Leiria', 'Portugal'),
+(8, 'Lisboa', 'Portugal'),
+(9, 'São Paulo', 'Brasil'),
+(10, 'Rio de Janeiro', 'Brasil');
 
 --INSERT Concelho
 INSERT INTO Concelho VALUES 
@@ -25,15 +35,26 @@ INSERT INTO Concelho VALUES
 (3, 'Fortaleza', 3),
 (4, 'Dallas', 4),
 (5, 'Paris', 5);
+(6, 'Aveiro', 6),
+(7, 'Leiria', 7),
+(8, 'Lisboa', 8),
+(9, 'São Paulo', 9),
+(10, 'Rio de Janeiro', 10);
 
 --INSERT Freguesia
 INSERT INTO Freguesia (nome, idConcelho) VALUES 
 ('Muro', 1),
-('conde', 2),
+('Conde', 2),
 ('Edson Queiroz', 3),
 ('Preston Hollow', 4),
 ('Les Halles', 5);
+('Oliveirinha', 6),
+('Amor', 7),
+('Ajuda', 8),
+('Santana', 9),
+('Copacabana', 10);
 
+<<<<<<< HEAD
 --INSERT CodigoPostal
 INSERT INTO CodigoPostal VALUES 
 ('4200083', 'Portugal'),
@@ -42,6 +63,21 @@ INSERT INTO CodigoPostal VALUES
 ('60811760', 'Brasil'), 
 ('07730', 'Estados Unidos'),
 ('22775040', 'Brasil');
+=======
+--INSERT Casa
+INSERT INTO Casa(endereco,numero, orientacaoSolar, qtdComodos) VALUES 
+('rua da areosa',155, 'N', 3),
+('rua da areosa',130, 'NE', 2),
+('rua arquitecto lobão vital',25, 'L', 3),
+('rua hill de moraes',166, 'O', 4),
+('rua maria dias hog',15, 'N', 3),
+('avenida cruzeiro do sul',130, 'NE', 2),
+('rua inventadus agoris',25, 'L', 3),
+('avenida capitão nascimento',254, 'O', 4),
+('rua ian jumas',169, 'O', 4),
+('rua da base de dados',185, 'O', 4),
+('avenida Abelardo Bueno',2510, 'SE', 5);
+>>>>>>> 8ecf438c60c4a9c06be729c83793eb62422ba4b6
 
 --INSERT Morada
 INSERT INTO Morada VALUES 
@@ -50,8 +86,15 @@ INSERT INTO Morada VALUES
 ('rua arquiteto lobão vital', 25, '4815549'), 
 ('rua hill de moraes', 166, '60811760'), 
 ('baker street', 122, '07730'),
+('rua maria dias hog',15,'97590'),
+('avenida cruzeiro do sul',130, '02571'),
+('rua inventadus agoris',25, '97225'),
+('avenida capitão nascimento',254, '30390'),
+('rua ian jumas',169, '40028922',
+('rua da base de dados',185, '123789'),
 ('Avenida Abelardo Bueno', 2510, '22775040');
 
+<<<<<<< HEAD
 
 --INSERT Casa
 INSERT INTO Casa(endereco,numero, orientacaoSolar, qtdComodos) VALUES 
@@ -60,6 +103,21 @@ INSERT INTO Casa(endereco,numero, orientacaoSolar, qtdComodos) VALUES
 ('rua arquiteto lobão vital',25, 'L', 3),
 ('rua hill de moraes',166, 'O', 4),
 ('Avenida Abelardo Bueno',2510, 'SE', 5);
+=======
+--INSERT CodigoPostal
+INSERT INTO CodigoPostal VALUES 
+('4200083', 'Portugal'),
+('4200089', 'Portugal'),
+('4815549', 'Portugal'), 
+('60811760', 'Brasil'), 
+('07730', 'Estados Unidos'),
+('02571', 'Brasil');
+('97225', 'Brasil');
+('30390', 'Brasil');
+('40028922', 'Brasil');
+('123789', 'Brasil');
+('22775040', 'Brasil');
+>>>>>>> 8ecf438c60c4a9c06be729c83793eb62422ba4b6
 
 --INSERT Utilizador
 INSERT INTO Utilizador VALUES 
