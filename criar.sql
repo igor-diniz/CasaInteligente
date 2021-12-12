@@ -315,19 +315,6 @@ CREATE TABLE Grupo
   ON DELETE CASCADE
 );
 
---TABELA GrupoDispositivoWifi:
-DROP TABLE IF EXISTS GrupoDispositivoWifi;
-CREATE TABLE GrupoDispositivoWifi
-(
-  idGrupo INTEGER NOT NULL,
-  idDispositivo INTEGER NOT NULL,
-  CONSTRAINT GrupoDispositivoWifi_PK PRIMARY KEY (idGrupo,idDispositivo),
-  CONSTRAINT GrupoDispositivoWifi_idGrupo_FK1 FOREIGN KEY (idGrupo) REFERENCES Grupo(idGrupo) 
-  ON DELETE CASCADE,
-  CONSTRAINT GrupoDispositivoWifi_idDispositivo_FK2 FOREIGN KEY (idDispositivo) REFERENCES DispositivoWifi(idDispositivo) 
-  ON DELETE CASCADE
-);
-
 --TABELA GrupoDispositivoBluetooth:
 DROP TABLE IF EXISTS GrupoDispositivoBluetooth;
 CREATE TABLE GrupoDispositivoBluetooth
@@ -338,6 +325,19 @@ CREATE TABLE GrupoDispositivoBluetooth
   CONSTRAINT GrupoDispositivoBluetooth_idGrupo_FK1 FOREIGN KEY (idGrupo) REFERENCES Grupo(idGrupo) 
   ON DELETE CASCADE,
   CONSTRAINT GrupoDispositivoBluetooth_idDispositivo_FK2 FOREIGN KEY (idDispositivo) REFERENCES DispositivoBluetooth(idDispositivo) 
+  ON DELETE CASCADE
+);
+
+--TABELA GrupoDispositivoWifi:
+DROP TABLE IF EXISTS GrupoDispositivoWifi;
+CREATE TABLE GrupoDispositivoWifi
+(
+  idGrupo INTEGER NOT NULL,
+  idDispositivo INTEGER NOT NULL,
+  CONSTRAINT GrupoDispositivoWifi_PK PRIMARY KEY (idGrupo,idDispositivo),
+  CONSTRAINT GrupoDispositivoWifi_idGrupo_FK1 FOREIGN KEY (idGrupo) REFERENCES Grupo(idGrupo) 
+  ON DELETE CASCADE,
+  CONSTRAINT GrupoDispositivoWifi_idDispositivo_FK2 FOREIGN KEY (idDispositivo) REFERENCES DispositivoWifi(idDispositivo) 
   ON DELETE CASCADE
 );
 
