@@ -15,7 +15,7 @@ CREATE TABLE Distrito
   nomePais TEXT,
   CONSTRAINT Distrito_PK PRIMARY KEY (idDistrito),
   CONSTRAINT Distrito_nomePais_FK1 FOREIGN KEY (nomePais) REFERENCES Pais(nome) 
-  ON DELETE CASCADE ON UPDATE CASCADE
+  ON UPDATE CASCADE
 );
 
 --TABELA Concelho:
@@ -27,7 +27,7 @@ CREATE TABLE Concelho
   idDistrito INTEGER,
   CONSTRAINT Concelho_PK PRIMARY KEY (idConcelho),
   CONSTRAINT Concelho_idDistrito_FK1 FOREIGN KEY (idDistrito) REFERENCES Distrito(idDistrito) 
-  ON DELETE CASCADE ON UPDATE CASCADE
+  ON UPDATE CASCADE
 );
 
 --TABELA Freguesia:
@@ -39,7 +39,30 @@ CREATE TABLE Freguesia
   idConcelho INTEGER,
   CONSTRAINT Freguesia_PK PRIMARY KEY (idFreguesia),
   CONSTRAINT Freguesia_idConcelho_FK1 FOREIGN KEY (idConcelho) REFERENCES Concelho(idConcelho) 
-  ON DELETE CASCADE ON UPDATE CASCADE
+  ON UPDATE CASCADE
+);
+
+--TABELA CodigoPostal:
+DROP TABLE IF EXISTS CodigoPostal;
+CREATE TABLE CodigoPostal
+(
+  codigoPostal TEXT, --Existem países que possuem letras no código postal (India, Irlanda ...)
+  nomePais TEXT,
+  CONSTRAINT CodigoPostal_PK PRIMARY KEY (codigoPostal),
+  CONSTRAINT CodigoPostal_nomePais_FK1 FOREIGN KEY (nomePais) REFERENCES Pais(nome) 
+  ON UPDATE CASCADE
+);
+
+--TABELA Morada:
+DROP TABLE IF EXISTS Morada;
+CREATE TABLE Morada
+(
+  endereco TEXT,
+  numero INTEGER,
+  codigoPostal TEXT NOT NULL,
+  CONSTRAINT Morada_PK PRIMARY KEY (endereco, numero),
+  CONSTRAINT Morada_CodigoPostal_FK1 FOREIGN KEY (codigoPostal) REFERENCES CodigoPostal(codigoPostal)
+  ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 --TABELA Casa:
@@ -53,28 +76,6 @@ CREATE TABLE Casa
   qtdComodos INTEGER NOT NULL,
   CONSTRAINT Casa_PK PRIMARY KEY (idCasa),
   CONSTRAINT Casa_Morada_FK1 FOREIGN KEY (endereco,numero) REFERENCES Morada(endereco,numero)
-);
-
---TABELA Morada:
-DROP TABLE IF EXISTS Morada;
-CREATE TABLE Morada
-(
-  endereco TEXT,
-  numero INTEGER,
-  codigoPostal TEXT NOT NULL,
-  CONSTRAINT Morada_PK PRIMARY KEY (endereco, numero),
-  CONSTRAINT Morada_CodigoPostal_FK1 FOREIGN KEY (codigoPostal) REFERENCES CodigoPostal(codigoPostal)
-
-);
-
---TABELA CodigoPostal:
-DROP TABLE IF EXISTS CodigoPostal;
-CREATE TABLE CodigoPostal
-(
-  codigoPostal TEXT, --Existem países que possuem letras no código postal (India, Irlanda ...)
-  nomePais TEXT,
-  CONSTRAINT CodigoPostal_PK PRIMARY KEY (codigoPostal),
-  CONSTRAINT CodigoPostal_nomePais_FK1 FOREIGN KEY (nomePais) REFERENCES Pais(nome) 
   ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -88,7 +89,7 @@ CREATE TABLE Utilizador
   nacionalidade TEXT,
   CONSTRAINT Utilizador_PK PRIMARY KEY (nif),
   CONSTRAINT Utilizador_nacionalidade_FK1 FOREIGN KEY (nacionalidade) REFERENCES Pais(nome) 
-  ON DELETE SET NULL ON UPDATE CASCADE
+  ON UPDATE CASCADE
 );
 
 --TABELA CasaUtilizador:
@@ -97,7 +98,7 @@ CREATE TABLE CasaUtilizador
 (
   idCasa INTEGER,
   nif INTEGER,
-  CONSTRAINT CasaUtilizador_PK PRIMARY KEY (idCasa, nif),
+  CONSTRAINT CasaUtilizador_PK PRIMARY KEY (idCasa,nif),
   CONSTRAINT CasaUtilizador_idCasa_FK1 FOREIGN KEY (idCasa) REFERENCES Casa(idCasa) 
   ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT CasaUtilizador_nif_FK2 FOREIGN KEY (nif) REFERENCES Utilizador(nif) 
@@ -122,7 +123,7 @@ CREATE TABLE Aplicacao
   idioma TEXT,
   CONSTRAINT Aplicacao_PK PRIMARY KEY (idAplicacao),
   CONSTRAINT Aplicacao_idioma_FK1 FOREIGN KEY (idioma) REFERENCES Idioma(nome) 
-  ON DELETE SET NULL ON UPDATE CASCADE
+  ON UPDATE CASCADE
 );
 
 --TABELA TipoUtilizador:
@@ -132,7 +133,7 @@ CREATE TABLE TipoUtilizador
   nif INTEGER,
   idAplicacao INTEGER,
   principal BOOLEAN DEFAULT 0,
-  CONSTRAINT TipoUtilizador_PK PRIMARY KEY (nif, idAplicacao),
+  CONSTRAINT TipoUtilizador_PK PRIMARY KEY (nif,idAplicacao),
   CONSTRAINT TipoUtilizador_nif_FK1 FOREIGN KEY (nif) REFERENCES Utilizador(nif) 
   ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT TipoUtilizador_idAplicacao_FK2 FOREIGN KEY (idAplicacao) REFERENCES Aplicacao(idAplicacao) 
@@ -162,7 +163,7 @@ CREATE TABLE GatilhoAcao
 (
   idGatilho INTEGER,
   nomeAcao TEXT,
-  CONSTRAINT GatilhoAcao_PK PRIMARY KEY (idGatilho, nomeAcao),
+  CONSTRAINT GatilhoAcao_PK PRIMARY KEY (idGatilho,nomeAcao),
   CONSTRAINT GatilhoAcao_idGatilho_FK1 FOREIGN KEY (idGatilho) REFERENCES Gatilho(idGatilho) 
   ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT GatilhoAcao_nomeAcao_FK2 FOREIGN KEY (nomeAcao) REFERENCES Acao(nome) 
@@ -212,6 +213,19 @@ CREATE TABLE AssistenteVirtual
   ON DELETE SET NULL ON UPDATE CASCADE
 );
 
+--TABELA EspecificacoesComandoInfravermelho :
+DROP TABLE IF EXISTS EspecificacoesComandoInfravermelho;
+CREATE TABLE EspecificacoesComandoInfravermelho
+(
+  nome TEXT,
+  idModelo INTEGER,
+  alcance FLOAT NOT NULL CHECK (alcance >= 0),
+  frequencia FLOAT NOT NULL CHECK (frequencia >= 0),
+  CONSTRAINT EspecificacoesComandoInfravermelho_PK PRIMARY KEY (nome,idModelo),
+  CONSTRAINT EspecificacoesComandoInfravermelho_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo) 
+  ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 --TABELA ComandoInfravermelho :
 DROP TABLE IF EXISTS ComandoInfravermelho;
 CREATE TABLE ComandoInfravermelho
@@ -225,21 +239,21 @@ CREATE TABLE ComandoInfravermelho
   ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT ComandoInfravermelho_idAplicacao_FK2 FOREIGN KEY (idAplicacao) REFERENCES Aplicacao(idAplicacao) 
   ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT ComandoInfravermelho_Especificacoes_FK1 FOREIGN KEY (nome,idModelo) REFERENCES EspecificacoesComandoInfravermelho(nome,idModelo)
+  CONSTRAINT ComandoInfravermelho_Especificacoes_FK3 FOREIGN KEY (nome,idModelo) REFERENCES EspecificacoesComandoInfravermelho(nome,idModelo)
 );
 
---TABELA EspecificacoesComandoInfravermelho :
-DROP TABLE IF EXISTS EspecificacoesComandoInfravermelho;
-CREATE TABLE EspecificacoesComandoInfravermelho
+--TABELA EspecificacoesDispositivoBluetooth:
+DROP TABLE IF EXISTS EspecificacoesDispositivoBluetooth;
+CREATE TABLE EspecificacoesDispositivoBluetooth
 (
   nome TEXT,
   idModelo INTEGER,
-  alcance FLOAT NOT NULL CHECK (alcance >= 0),
-  frequencia FLOAT NOT NULL CHECK (frequencia >= 0),
-  CONSTRAINT EspecificacoesComandoInfravermelho_PK PRIMARY KEY (nome, idModelo),
-  CONSTRAINT EspecificacoesComandoInfravermelho_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo) 
+  versaoBluetooth TEXT NOT NULL,
+  alcance FLOAT NOT NULL,
+  velocidadeMax FLOAT,
+  CONSTRAINT EspecificacoesDispositivoBluetooth_PK PRIMARY KEY (nome,idModelo),
+  CONSTRAINT EspecificacoesDispositivoBluetooth_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
   ON DELETE CASCADE ON UPDATE CASCADE
-
 );
 
 --TABELA DispositivoBluetooth:
@@ -255,20 +269,20 @@ CREATE TABLE DispositivoBluetooth
   ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT DispositivoBluetooth_idAssistente_FK2 FOREIGN KEY (idAssistente) REFERENCES AssistenteVirtual(idAssistente) 
   ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT DispositivoBluetooth_Especificacoes_FK1 FOREIGN KEY (nome,idModelo) REFERENCES EspecificacoesDispositivoBluetooth(nome,idModelo)
+  CONSTRAINT DispositivoBluetooth_Especificacoes_FK3 FOREIGN KEY (nome,idModelo) REFERENCES EspecificacoesDispositivoBluetooth(nome,idModelo)
 );
 
---TABELA EspecificacoesDispositivoBluetooth:
-DROP TABLE IF EXISTS EspecificacoesDispositivoBluetooth;
-CREATE TABLE EspecificacoesDispositivoBluetooth
+--TABELA EspecificacoesDispositivoWifi:
+DROP TABLE IF EXISTS EspecificacoesDispositivoWifi;
+CREATE TABLE EspecificacoesDispositivoWifi
 (
   nome TEXT,
   idModelo INTEGER,
-  versaoBluetooth TEXT NOT NULL,
   alcance FLOAT NOT NULL,
   velocidadeMax FLOAT,
-  CONSTRAINT EspecificacoesDispositivoBluetooth_PK PRIMARY KEY (nome, idModelo),
-  CONSTRAINT EspecificacoesDispositivoBluetooth_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
+  frequencia FLOAT NOT NULL,
+  CONSTRAINT EspecificacoesDispositivoWifi_PK PRIMARY KEY (nome,idModelo),
+  CONSTRAINT EspecificacoesDispositivoWifi_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
   ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -282,19 +296,17 @@ CREATE TABLE DispositivoWifi
   CONSTRAINT DispositivoWifi_PK PRIMARY KEY (idDispositivo),
   CONSTRAINT DispositivoWifi_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
    ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT DispositivoWifi_Especificacoes_FK1 FOREIGN KEY (nome,idModelo) REFERENCES EspecificacoesDispositivoWifi(nome,idModelo)
+  CONSTRAINT DispositivoWifi_Especificacoes_FK2 FOREIGN KEY (nome,idModelo) REFERENCES EspecificacoesDispositivoWifi(nome,idModelo)
 );
 
---TABELA EspecificacoesDispositivoWifi:
-DROP TABLE IF EXISTS EspecificacoesDispositivoWifi;
-CREATE TABLE EspecificacoesDispositivoWifi
+--TABELA EspecificacoesDispositivoInfravermelho:
+DROP TABLE IF EXISTS EspecificacoesDispositivoInfravermelho;
+CREATE TABLE EspecificacoesDispositivoInfravermelho
 (
   nome TEXT,
   idModelo INTEGER,
-  alcance FLOAT NOT NULL,
-  velocidadeMax FLOAT,
   frequencia FLOAT NOT NULL,
-  CONSTRAINT EspecificacoesDispositivoWifi_PK PRIMARY KEY (nome, idModelo),
+  CONSTRAINT EspecificacoesDispositivoWifi_PK PRIMARY KEY (nome,idModelo),
   CONSTRAINT EspecificacoesDispositivoWifi_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
   ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -309,20 +321,8 @@ CREATE TABLE DispositivoInfravermelho
   CONSTRAINT DispositivoInfravermelho_PK PRIMARY KEY (idDispositivo),
   CONSTRAINT DispositivoInfravermelho_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
   ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT DispositivoInfravermelho_Especificacoes_FK1 FOREIGN KEY (nome,idModelo) REFERENCES EspecificacoesDispositivoInfravermelho
+  CONSTRAINT DispositivoInfravermelho_Especificacoes_FK2 FOREIGN KEY (nome,idModelo) REFERENCES EspecificacoesDispositivoInfravermelho
   
-);
-
---TABELA EspecificacoesDispositivoInfravermelho:
-DROP TABLE IF EXISTS EspecificacoesDispositivoInfravermelho;
-CREATE TABLE EspecificacoesDispositivoInfravermelho
-(
-  nome TEXT,
-  idModelo INTEGER,
-  frequencia FLOAT NOT NULL,
-  CONSTRAINT EspecificacoesDispositivoWifi_PK PRIMARY KEY (nome, idModelo),
-  CONSTRAINT EspecificacoesDispositivoWifi_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
-  ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 --TABELA Grupo:
@@ -344,7 +344,7 @@ CREATE TABLE GrupoDispositivoWifi
 (
   idGrupo INTEGER,
   idDispositivo INTEGER,
-  CONSTRAINT GrupoDispositivoWifi_PK PRIMARY KEY (idGrupo, idDispositivo),
+  CONSTRAINT GrupoDispositivoWifi_PK PRIMARY KEY (idGrupo,idDispositivo),
   CONSTRAINT GrupoDispositivoWifi_idGrupo_FK1 FOREIGN KEY (idGrupo) REFERENCES Grupo(idGrupo) 
   ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT GrupoDispositivoWifi_idDispositivo_FK2 FOREIGN KEY (idDispositivo) REFERENCES DispositivoWifi(idDispositivo) 
@@ -357,7 +357,7 @@ CREATE TABLE GrupoDispositivoBluetooth
 (
   idGrupo INTEGER,
   idDispositivo INTEGER,
-  CONSTRAINT GrupoDispositivoBluetooth_PK PRIMARY KEY (idGrupo, idDispositivo),
+  CONSTRAINT GrupoDispositivoBluetooth_PK PRIMARY KEY (idGrupo,idDispositivo),
   CONSTRAINT GrupoDispositivoBluetooth_idGrupo_FK1 FOREIGN KEY (idGrupo) REFERENCES Grupo(idGrupo) 
   ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT GrupoDispositivoBluetooth_idDispositivo_FK2 FOREIGN KEY (idDispositivo) REFERENCES DispositivoBluetooth(idDispositivo) 
@@ -370,7 +370,7 @@ CREATE TABLE GrupoDispositivoInfravermelho
 (
   idGrupo INTEGER,
   idDispositivo INTEGER,
-  CONSTRAINT GrupoDispositivoInfravermelho_PK PRIMARY KEY (idGrupo, idDispositivo),
+  CONSTRAINT GrupoDispositivoInfravermelho_PK PRIMARY KEY (idGrupo,idDispositivo),
   CONSTRAINT GrupoDispositivoInfravermelho_idGrupo_FK1 FOREIGN KEY (idGrupo) REFERENCES Grupo(idGrupo) 
   ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT GrupoDispositivoInfravermelho_idDispositivo_FK2 FOREIGN KEY (idDispositivo) REFERENCES DispositivoInfravermelho(idDispositivo) 
@@ -385,7 +385,7 @@ CREATE TABLE DispositivoBluetoothAcaoAssistente
   idDispositivo INTEGER,
   nomeAcao TEXT,
   idAssistente INTEGER,
-  CONSTRAINT DispositivoBluetoothAcaoAssistente_PK PRIMARY KEY (idDispositivo, nomeAcao),
+  CONSTRAINT DispositivoBluetoothAcaoAssistente_PK PRIMARY KEY (idDispositivo,nomeAcao),
   CONSTRAINT DispositivoBluetoothAcaoAssistente_idDispositivo_FK1 FOREIGN KEY (idDispositivo) REFERENCES DispositivoBluetooth(idDispositivo)
   ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT DispositivoBluetoothAcaoAssistente_nomeAcao_FK2 FOREIGN KEY (nomeAcao) REFERENCES Acao(nome)
@@ -402,7 +402,7 @@ CREATE TABLE DispositivoWifiAcaoAssistente
   idDispositivo INTEGER,
   nomeAcao TEXT,
   idAssistente INTEGER,
-  CONSTRAINT DispositivoWifiAcaoAssistente_PK PRIMARY KEY (idDispositivo, nomeAcao),
+  CONSTRAINT DispositivoWifiAcaoAssistente_PK PRIMARY KEY (idDispositivo,nomeAcao),
   CONSTRAINT DispositivoWifiAcaoAssistente_idDispositivo_FK1 FOREIGN KEY (idDispositivo) REFERENCES DispositivoWifi(idDispositivo)
   ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT DispositivoWifiAcaoAssistente_nomeAcao_FK2 FOREIGN KEY (nomeAcao) REFERENCES Acao(nome)
@@ -418,7 +418,7 @@ CREATE TABLE DispositivoInfravermelhoAcaoAssistente
   idDispositivo INTEGER,
   nomeAcao TEXT,
   idAssistente INTEGER,
-  CONSTRAINT DispositivoInfravermelhoAcaoAssistente_PK PRIMARY KEY (idDispositivo, nomeAcao),
+  CONSTRAINT DispositivoInfravermelhoAcaoAssistente_PK PRIMARY KEY (idDispositivo,nomeAcao),
   CONSTRAINT DispositivoInfravermelhoAcaoAssistente_idDispositivo_FK1 FOREIGN KEY (idDispositivo) REFERENCES DispositivoInfravermelho(idDispositivo)
   ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT DispositivoInfravermelhoAcaoAssistente_nomeAcao_FK2 FOREIGN KEY (nomeAcao) REFERENCES Acao(nome)
@@ -434,7 +434,7 @@ CREATE TABLE DispositivoWifiAplicacao
 (
   idDispositivo INTEGER,
   idAplicacao INTEGER,
-  CONSTRAINT DispositivoWifiAplicacao_PK PRIMARY KEY (idDispositivo, idAplicacao),
+  CONSTRAINT DispositivoWifiAplicacao_PK PRIMARY KEY (idDispositivo,idAplicacao),
   CONSTRAINT DispositivoWifiAplicacao_idDispositivo_FK1 FOREIGN KEY (idDispositivo) REFERENCES DispositivoWifi(idDispositivo)
   ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT DispositivoWifiAplicacao_idAplicacao_FK2 FOREIGN KEY (idAplicacao) REFERENCES Aplicacao(idAplicacao)

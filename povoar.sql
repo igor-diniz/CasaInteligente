@@ -34,7 +34,7 @@ INSERT INTO Concelho VALUES
 (2, 'Guimarães', 2),
 (3, 'Fortaleza', 3),
 (4, 'Dallas', 4),
-(5, 'Paris', 5);
+(5, 'Paris', 5),
 (6, 'Aveiro', 6),
 (7, 'Leiria', 7),
 (8, 'Lisboa', 8),
@@ -47,23 +47,13 @@ INSERT INTO Freguesia (nome, idConcelho) VALUES
 ('Conde', 2),
 ('Edson Queiroz', 3),
 ('Preston Hollow', 4),
-('Les Halles', 5);
+('Les Halles', 5),
 ('Oliveirinha', 6),
 ('Amor', 7),
 ('Ajuda', 8),
 ('Santana', 9),
 ('Copacabana', 10);
 
-<<<<<<< HEAD
---INSERT CodigoPostal
-INSERT INTO CodigoPostal VALUES 
-('4200083', 'Portugal'),
-('4200089', 'Portugal'),
-('4815549', 'Portugal'), 
-('60811760', 'Brasil'), 
-('07730', 'Estados Unidos'),
-('22775040', 'Brasil');
-=======
 --INSERT Casa
 INSERT INTO Casa(endereco,numero, orientacaoSolar, qtdComodos) VALUES 
 ('rua da areosa',155, 'N', 3),
@@ -77,7 +67,6 @@ INSERT INTO Casa(endereco,numero, orientacaoSolar, qtdComodos) VALUES
 ('rua ian jumas',169, 'O', 4),
 ('rua da base de dados',185, 'O', 4),
 ('avenida Abelardo Bueno',2510, 'SE', 5);
->>>>>>> 8ecf438c60c4a9c06be729c83793eb62422ba4b6
 
 --INSERT Morada
 INSERT INTO Morada VALUES 
@@ -90,20 +79,10 @@ INSERT INTO Morada VALUES
 ('avenida cruzeiro do sul',130, '02571'),
 ('rua inventadus agoris',25, '97225'),
 ('avenida capitão nascimento',254, '30390'),
-('rua ian jumas',169, '40028922',
-('rua da base de dados',185, '123789'),
+('rua ian jumas', 169, '40028922'),
+('rua da base de dados', 185, '123789'),
 ('Avenida Abelardo Bueno', 2510, '22775040');
 
-<<<<<<< HEAD
-
---INSERT Casa
-INSERT INTO Casa(endereco,numero, orientacaoSolar, qtdComodos) VALUES 
-('rua da areosa',155, 'N', 3),
-('rua da areosa',130, 'NE', 2),
-('rua arquiteto lobão vital',25, 'L', 3),
-('rua hill de moraes',166, 'O', 4),
-('Avenida Abelardo Bueno',2510, 'SE', 5);
-=======
 --INSERT CodigoPostal
 INSERT INTO CodigoPostal VALUES 
 ('4200083', 'Portugal'),
@@ -111,13 +90,12 @@ INSERT INTO CodigoPostal VALUES
 ('4815549', 'Portugal'), 
 ('60811760', 'Brasil'), 
 ('07730', 'Estados Unidos'),
-('02571', 'Brasil');
-('97225', 'Brasil');
-('30390', 'Brasil');
-('40028922', 'Brasil');
-('123789', 'Brasil');
+('02571', 'Brasil'),
+('97225', 'Brasil'),
+('30390', 'Brasil'),
+('40028922', 'Brasil'),
+('123789', 'Brasil'),
 ('22775040', 'Brasil');
->>>>>>> 8ecf438c60c4a9c06be729c83793eb62422ba4b6
 
 --INSERT Utilizador
 INSERT INTO Utilizador VALUES 
@@ -221,11 +199,11 @@ INSERT INTO Modelo VALUES
 (12, 'LG ThinQ Ar-Condicionado', 8),
 (13, 'Fm Mic Grasep D-s27', 9),
 (14, 'AM07', 10),
-(15,'Wh-1000Xm3',11),
-(16,'SmartTV LG 50" 4K UHD 50UP7550',8),
-(17,'4102171645014',12),
-(18,'WifiRC10CBK',13),
-(19,'1251238',4);
+(15, 'Wh-1000Xm3',11),
+(16, 'SmartTV LG 50" 4K UHD 50UP7550',8),
+(17, '4102171645014',12),
+(18, 'WifiRC10CBK',13),
+(19, '1251238',4);
 
 --INSERT AssistenteVirtual
 INSERT INTO AssistenteVirtual VALUES 
