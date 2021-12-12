@@ -428,3 +428,4 @@ CREATE TABLE DispositivoInfraComando
   CONSTRAINT DispositivoInfraComando_idComando_FK2 FOREIGN KEY (idComando) REFERENCES ComandoInfravermelho(idComando)
   ON DELETE CASCADE
 );
+
