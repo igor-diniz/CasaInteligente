@@ -72,16 +72,16 @@ INSERT INTO CodigoPostal VALUES
 INSERT INTO Morada VALUES 
 ('rua da areosa', 155, '4200083'),
 ('rua da areosa', 130, '4200089'),
-('rua arquiteto lobão vital', 25, '4815549'), 
+('rua arquitecto lobão vital', 25, '4815549'), 
 ('rua hill de moraes', 166, '60811760'), 
 ('baker street', 122, '07730'),
-('rua maria dias hog',15,'97590'),
+('rua maria dias hog',15,'97225'),
 ('avenida cruzeiro do sul',130, '02571'),
 ('rua inventadus agoris',25, '97225'),
 ('avenida capitão nascimento',254, '30390'),
 ('rua ian jumas', 169, '40028922'),
 ('rua da base de dados', 185, '123789'),
-('Avenida Abelardo Bueno', 2510, '22775040');
+('avenida Abelardo Bueno', 2510, '22775040');
 
 --INSERT Casa
 INSERT INTO Casa(endereco,numero, orientacaoSolar, qtdComodos) VALUES 
@@ -104,11 +104,11 @@ INSERT INTO Utilizador VALUES
 (744584663, 'Ian Gomes', '2001-12-29', 'Brasil'),
 (643375570, 'Pedro Sousa', '1990-05-05', 'Portugal'),
 (908361726, 'Michael Jackson', '1958-08-29', 'Estados Unidos'),
-(744584663, 'Yudi Playstation', '1990-10-22', 'Brasil'),
+(744584662, 'Yudi Playstation', '1990-10-22', 'Brasil'),
 (746544243, 'Rosabel Whiskin', '1967-07-30', 'China'),
-(852937412, 'Jena Schlagman', '2014-09-11',	'Philippines'),
-(965485234, 'Finn Vasler', '1973-04-20', 'Indonesia'),
-(123987456, 'Marty Bechley', '1996-03-28', 'Russia');
+(852937412, 'Jena Schlagman', '2014-09-11',	'Bolivia'),
+(965485234, 'Finn Vasler', '1973-04-20', 'Angola'),
+(123987456, 'Marty Bechley', '1996-03-28', 'Bolivia');
 
 --INSERT CasaUtilizador
 INSERT INTO CasaUtilizador VALUES 
@@ -162,7 +162,7 @@ INSERT INTO TipoUtilizador(nif,idAplicacao) VALUES
 (852937412, 2),
 (965485234, 1),
 (123987456, 4),
-(778527456, 4);
+(744584662, 4);
 INSERT INTO TipoUtilizador VALUES (744584663, 2, 1);
 
 --INSERT Acao
@@ -249,11 +249,11 @@ INSERT INTO AssistenteVirtual VALUES
 (3, 'Alexa', 'Inglês', 10, 3, 2, 2),
 (4, 'Siri', 'Mandarim', 12, 4, 1, 6),
 (5, 'Cortana', 'Russo', 7, 5, 5, 7),
-(6, 'Google Assistant', 'Hindi', 7, 1, 9, 5),
-(7, 'Google Assistant', 'Guaraní', 7, 8, 3, 6),
-(8, 'Alexa', 'Alemão', 8, 8, 4, 4),
-(9, 'Siri', 'Mandarim', 4, 0, 0, 2),
-(10, 'Cortana', 'Russo', 8, 9, 2, 2);
+(6, 'Google Assistant', 'Hindi', 7, 10, 9, 1),
+(7, 'Google Assistant', 'Guaraní', 7, 8, 3, 10),
+(8, 'Alexa', 'Alemão', 8, 6, 4, 8),
+(9, 'Siri', 'Mandarim', 4, 7, 2, 3),
+(10, 'Cortana', 'Russo', 8, 9, 2, 9);
 
 --INSERT EspecificacoesComandoInfravermelho
 INSERT INTO EspecificacoesComandoInfravermelho(nome, idModelo, alcance, frequencia) VALUES 
@@ -261,12 +261,12 @@ INSERT INTO EspecificacoesComandoInfravermelho(nome, idModelo, alcance, frequenc
 ('Comando Universal Inteligente C/Transformad Nedis',18,28,2400),
 ('Comando Inteligente SPC Horus 360º Infravermelhos Universal',19,30,5000),
 ('Comando Universal Infravermelho Dumb',16,50,2000),
-('Comando Universal Inteligente S/Transformad Nedis',19,20.2000),
-('Comando Inteligente SPC Horus 180º Infravermelhos Universal',20,25,4000),
+('Comando Universal Inteligente S/Transformad Nedis',19,20,2000),
+('Comando Inteligente SPC Horus 180º Infravermelhos Universal',7,25,4000),
 ('Comando Universal Infravermelho Genius',10,10,1200),
 ('Comando Universal Inteligente C/Transformers Autobots',12,35,2390),
 ('Comando Inteligente SPC Horus 90º Infravermelhos Universal',7,25,2500),
-('Comando Inteligente SPC Horus 45º Infravermelhos Universal',1,28,6400);
+('Comando Inteligente SPC Horus 45º Infravermelhos Universal',7,28,6400);
 
 --INSERT ComandoInfravermelho
 INSERT INTO ComandoInfravermelho(nome, idModelo, idAplicacao) VALUES 
@@ -275,11 +275,11 @@ INSERT INTO ComandoInfravermelho(nome, idModelo, idAplicacao) VALUES
 ('Comando Inteligente SPC Horus 360º Infravermelhos Universal',19,2),
 ('Comando Universal Infravermelho Dumb',16,1),
 ('Comando Universal Inteligente S/Transformad Nedis',19,3),
-('Comando Inteligente SPC Horus 180º Infravermelhos Universal',20,2),
+('Comando Inteligente SPC Horus 180º Infravermelhos Universal',7,2),
 ('Comando Universal Infravermelho Genius',10,1),
 ('Comando Universal Inteligente C/Transformers Autobots',12,3),
 ('Comando Inteligente SPC Horus 90º Infravermelhos Universal',7,2),
-('Comando Inteligente SPC Horus 45º Infravermelhos Universal',1,2);
+('Comando Inteligente SPC Horus 45º Infravermelhos Universal',7,2);
 
 --INSERT EspecificacoesDispositivoBluetooth
 INSERT INTO EspecificacoesDispositivoBluetooth(nome, idModelo, versaoBluetooth, alcance) VALUES 
@@ -287,12 +287,12 @@ INSERT INTO EspecificacoesDispositivoBluetooth(nome, idModelo, versaoBluetooth, 
 ('Lâmpada',9,'4.0',21),
 ('Headphone',15,'4.2.1',18),
 ('TV',16,'2.1.1',15),
-('Lâmpada','10.1',30),
-('Lâmpada','1.1',40),
-('Headphone','10.1',35),
-('Câmera','6.0',30),
-('Câmera','9.0',40);
-INSERT INTO EspecificacoesDispositivoBluetooth(nome, idModelo, versaoBluetooth, alcance, velocidadeMax) VALUES ('TV',16,'4.0.0',18,200);
+('Lâmpada',10,'10.1',30),
+('Lâmpada',11,'1.1',40),
+('Headphone',10,'10.1',35),
+('Câmera',13,'6.0',30),
+('Câmera',15,'9.0',40);
+INSERT INTO EspecificacoesDispositivoBluetooth(nome, idModelo, versaoBluetooth, alcance, velocidadeMax) VALUES ('TV',1,'4.0.0',18,200);
 
 --INSERT DispositivoBluetooth
 INSERT INTO DispositivoBluetooth(nome,idModelo,idAssistente) VALUES 
@@ -303,8 +303,8 @@ INSERT INTO DispositivoBluetooth(nome,idModelo,idAssistente) VALUES
 ('Lâmpada',10,3),
 ('Lâmpada',11,4),
 ('Headphone',10,3),
-('Câmera',60,3),
-('Câmera',90,4),
+('Câmera',13,3),
+('Câmera',15,4),
 ('TV',1,2);
 
 --INSERT EspecificacoesDispositivoWifi
@@ -392,7 +392,7 @@ INSERT INTO GrupoDispositivoWifi VALUES
 (4,3),
 (5,1),
 (1,4),
-(1,2),
+(1,8),
 (4,4),
 (5,9),
 (1,6),
