@@ -428,21 +428,38 @@ INSERT INTO DispositivoWifiAcaoAssistente(idDispositivo, nomeAcao, idAssistente)
 (1,'ligar TV',2),
 (5,'ligar ar-condicionado',3),
 (5,'desligar ar-condicionado',3),
-(2,'ligar TV',2);
+(6,'ligar TV',2),
+(7,'ligar TV',2),
+(9,'ligar ar-condicionado',3),
+(8,'desligar ar-condicionado',3),
+(3,'ligar TV',2),
+(4,'ligar TV',2),
+(2,'ligar ar-condicionado',3);
 
 --INSERT DispositivoInfravermelhoAcaoAssistente
 INSERT INTO DispositivoInfravermelhoAcaoAssistente(idDispositivo, nomeAcao, idAssistente) VALUES 
 (1,'ligar ar-condicionado',3),
 (1,'desligar ar-condicionado',3),
 (2,'ligar som',2),
+(2,'ligar luzes',2),
+(5,'ligar luzes',5),
+(6,'desligar luzes',2),
+(9,'ligar ar-condicionado',3),
+(8,'desligar ar-condicionado',3),
+(3,'ligar TV',2),
 (2,'aumentar volume',2);
 
 --INSERT DispositivoWifiAplicacao
 INSERT INTO DispositivoWifiAplicacao VALUES 
 (1,1),
 (2,1),
-(3,3),
+(3,4),
+(4,5),
+(2,3),
+(3,2),
 (4,6),
+(2,8),
+(3,7),
 (5,4);
 
 --INSERT DispositivoInfraComando
@@ -450,4 +467,10 @@ INSERT INTO DispositivoInfraComando VALUES
 (1,1),
 (1,3),
 (3,1),
+(4,5),
+(2,3),
+(3,2),
+(4,6),
+(2,8),
+(3,7),
 (2,2);
