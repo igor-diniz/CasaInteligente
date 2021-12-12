@@ -248,11 +248,11 @@ INSERT INTO AssistenteVirtual VALUES
 (3, 'Alexa', 'Inglês', 10, 3, 2, 2),
 (4, 'Siri', 'Mandarim', 12, 4, 1, 6),
 (5, 'Cortana', 'Russo', 7, 5, 5, 7),
-(6, 'Google Assistant', 'Hindi', 7, 10, 9, 1),
+(6, 'Google Assistant', 'Hindi', 7, 10, 9, 9),
 (7, 'Google Assistant', 'Guaraní', 7, 8, 3, 10),
-(8, 'Alexa', 'Alemão', 8, 6, 4, 8),
-(9, 'Siri', 'Mandarim', 4, 7, 2, 3),
-(10, 'Cortana', 'Russo', 8, 9, 2, 9);
+(8, 'Alexa', 'Português', 8, 6, 4, 8),
+(9, 'Siri', 'Espanhol', 4, 7, 2, 3),
+(10, 'Cortana', 'Português', 8, 9, 2, 1);
 
 --INSERT EspecificacoesComandoInfravermelho
 INSERT INTO EspecificacoesComandoInfravermelho(nome, idModelo, alcance, frequencia) VALUES 
@@ -336,13 +336,13 @@ INSERT INTO EspecificacoesDispositivoInfravermelho(nome, idModelo ,frequencia) V
 ('Ar-Condicionado',12,2400),
 ('Caixa de som',13,5000),
 ('Ventilador',14,2400),
-('Ar-Condicionado',1,8000),
+('Ar-Condicionado',1,5000),
 ('Caixa de som',1,4500),
 ('Ventilador',1,2000),
 ('Ar-Condicionado',2,1500),
-('Caixa de som',3,9800),
+('Caixa de som',3,6400),
 ('Ventilador',4,4000),
-('Caixa de som',5,3500);
+('Caixa de som',5,2500);
 
 --INSERT DispositivoInfravermelho
 INSERT INTO DispositivoInfravermelho(idDispositivo, nome, idModelo) VALUES 
@@ -464,12 +464,12 @@ INSERT INTO DispositivoWifiAplicacao VALUES
 --INSERT DispositivoInfraComando
 INSERT INTO DispositivoInfraComando VALUES 
 (1,1),
-(1,3),
-(3,1),
-(4,5),
+(1,2),
+(6,5),
+(4,3),
 (2,3),
 (3,2),
-(4,6),
-(2,8),
-(3,7),
-(2,2);
+(6,4),
+(8,10),
+(3,1),
+(10,9);

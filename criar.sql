@@ -129,7 +129,6 @@ CREATE TABLE TipoUtilizador
   CONSTRAINT TipoUtilizador_nif_FK1 FOREIGN KEY (nif) REFERENCES Utilizador(nif) 
   ON DELETE CASCADE,
   CONSTRAINT TipoUtilizador_idAplicacao_FK2 FOREIGN KEY (idAplicacao) REFERENCES Aplicacao(idAplicacao) 
-  ON DELETE CASCADE 
 );
 
 --TABELA Acao:
@@ -367,7 +366,7 @@ CREATE TABLE DispositivoBluetoothAcaoAssistente
   CONSTRAINT DispositivoBluetoothAcaoAssistente_idDispositivo_FK1 FOREIGN KEY (idDispositivo) REFERENCES DispositivoBluetooth(idDispositivo)
   ON DELETE CASCADE,
   CONSTRAINT DispositivoBluetoothAcaoAssistente_nomeAcao_FK2 FOREIGN KEY (nomeAcao) REFERENCES Acao(nome)
-  ON DELETE CASCADE,
+  ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT DispositivoBluetoothAcaoAssistente_idAssistente_FK3 FOREIGN KEY (idAssistente) REFERENCES AssistenteVirtual(idAssistente)
 );
 
