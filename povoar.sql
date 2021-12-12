@@ -79,8 +79,8 @@ INSERT INTO Morada VALUES
 ('avenida cruzeiro do sul',130, '02571'),
 ('rua inventadus agoris',25, '97225'),
 ('avenida capitão nascimento',254, '30390'),
-('rua ian jumas',169, '40028922'),
-('rua da base de dados',185, '123789'),
+('rua ian jumas', 169, '40028922'),
+('rua da base de dados', 185, '123789'),
 ('Avenida Abelardo Bueno', 2510, '22775040');
 
 --INSERT Casa
@@ -236,11 +236,11 @@ INSERT INTO Modelo VALUES
 (12, 'LG ThinQ Ar-Condicionado', 8),
 (13, 'Fm Mic Grasep D-s27', 9),
 (14, 'AM07', 10),
-(15,'Wh-1000Xm3',11),
-(16,'SmartTV LG 50" 4K UHD 50UP7550',8),
-(17,'4102171645014',12),
-(18,'WifiRC10CBK',13),
-(19,'1251238',4);
+(15, 'Wh-1000Xm3',11),
+(16, 'SmartTV LG 50" 4K UHD 50UP7550',8),
+(17, '4102171645014',12),
+(18, 'WifiRC10CBK',13),
+(19, '1251238',4);
 
 --INSERT AssistenteVirtual
 INSERT INTO AssistenteVirtual VALUES 
