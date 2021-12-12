@@ -54,19 +54,19 @@ INSERT INTO Freguesia (nome, idConcelho) VALUES
 ('Santana', 9),
 ('Copacabana', 10);
 
---INSERT Casa
-INSERT INTO Casa(endereco,numero, orientacaoSolar, qtdComodos) VALUES 
-('rua da areosa',155, 'N', 3),
-('rua da areosa',130, 'NE', 2),
-('rua arquitecto lobão vital',25, 'L', 3),
-('rua hill de moraes',166, 'O', 4),
-('rua maria dias hog',15, 'N', 3),
-('avenida cruzeiro do sul',130, 'NE', 2),
-('rua inventadus agoris',25, 'L', 3),
-('avenida capitão nascimento',254, 'O', 4),
-('rua ian jumas',169, 'O', 4),
-('rua da base de dados',185, 'O', 4),
-('avenida Abelardo Bueno',2510, 'SE', 5);
+--INSERT CodigoPostal
+INSERT INTO CodigoPostal VALUES 
+('4200083', 'Portugal'),
+('4200089', 'Portugal'),
+('4815549', 'Portugal'), 
+('60811760', 'Brasil'), 
+('07730', 'Estados Unidos'),
+('02571', 'Brasil'),
+('97225', 'Brasil'),
+('30390', 'Brasil'),
+('40028922', 'Brasil'),
+('123789', 'Brasil'),
+('22775040', 'Brasil');
 
 --INSERT Morada
 INSERT INTO Morada VALUES 
@@ -83,19 +83,19 @@ INSERT INTO Morada VALUES
 ('rua da base de dados',185, '123789'),
 ('Avenida Abelardo Bueno', 2510, '22775040');
 
---INSERT CodigoPostal
-INSERT INTO CodigoPostal VALUES 
-('4200083', 'Portugal'),
-('4200089', 'Portugal'),
-('4815549', 'Portugal'), 
-('60811760', 'Brasil'), 
-('07730', 'Estados Unidos'),
-('02571', 'Brasil'),
-('97225', 'Brasil'),
-('30390', 'Brasil'),
-('40028922', 'Brasil'),
-('123789', 'Brasil'),
-('22775040', 'Brasil');
+--INSERT Casa
+INSERT INTO Casa(endereco,numero, orientacaoSolar, qtdComodos) VALUES 
+('rua da areosa',155, 'N', 3),
+('rua da areosa',130, 'NE', 2),
+('rua arquitecto lobão vital',25, 'L', 3),
+('rua hill de moraes',166, 'O', 4),
+('rua maria dias hog',15, 'N', 3),
+('avenida cruzeiro do sul',130, 'NE', 2),
+('rua inventadus agoris',25, 'L', 3),
+('avenida capitão nascimento',254, 'O', 4),
+('rua ian jumas',169, 'O', 4),
+('rua da base de dados',185, 'O', 4),
+('avenida Abelardo Bueno',2510, 'SE', 5);
 
 --INSERT Utilizador
 INSERT INTO Utilizador VALUES 
@@ -255,19 +255,6 @@ INSERT INTO AssistenteVirtual VALUES
 (9, 'Siri', 'Mandarim', 4, 0, 0, 2),
 (10, 'Cortana', 'Russo', 8, 9, 2, 2);
 
---INSERT ComandoInfravermelho
-INSERT INTO ComandoInfravermelho(nome, idModelo, idAplicacao) VALUES 
-('Comando Universal Infravermelho Smart',17,1),
-('Comando Universal Inteligente C/Transformad Nedis',18,3),
-('Comando Inteligente SPC Horus 360º Infravermelhos Universal',19,2),
-('Comando Universal Infravermelho Dumb',16,1),
-('Comando Universal Inteligente S/Transformad Nedis',19,3),
-('Comando Inteligente SPC Horus 180º Infravermelhos Universal',20,2),
-('Comando Universal Infravermelho Genius',10,1),
-('Comando Universal Inteligente C/Transformers Autobots',12,3),
-('Comando Inteligente SPC Horus 90º Infravermelhos Universal',7,2),
-('Comando Inteligente SPC Horus 45º Infravermelhos Universal',1,2);
-
 --INSERT EspecificacoesComandoInfravermelho
 INSERT INTO EspecificacoesComandoInfravermelho(nome, idModelo, alcance, frequencia) VALUES 
 ('Comando Universal Infravermelho Smart',17,25,2400),
@@ -281,18 +268,18 @@ INSERT INTO EspecificacoesComandoInfravermelho(nome, idModelo, alcance, frequenc
 ('Comando Inteligente SPC Horus 90º Infravermelhos Universal',7,25,2500),
 ('Comando Inteligente SPC Horus 45º Infravermelhos Universal',1,28,6400);
 
---INSERT DispositivoBluetooth
-INSERT INTO DispositivoBluetooth(nome,idModelo,idAssistente) VALUES 
-('Lâmpada',8,3),
-('Lâmpada',9,4),
-('Headphone',15,3),
-('TV',16,2),
-('Lâmpada',10,3),
-('Lâmpada',11,4),
-('Headphone',10,3),
-('Câmera',60,3),
-('Câmera',90,4),
-('TV',1,2);
+--INSERT ComandoInfravermelho
+INSERT INTO ComandoInfravermelho(nome, idModelo, idAplicacao) VALUES 
+('Comando Universal Infravermelho Smart',17,1),
+('Comando Universal Inteligente C/Transformad Nedis',18,3),
+('Comando Inteligente SPC Horus 360º Infravermelhos Universal',19,2),
+('Comando Universal Infravermelho Dumb',16,1),
+('Comando Universal Inteligente S/Transformad Nedis',19,3),
+('Comando Inteligente SPC Horus 180º Infravermelhos Universal',20,2),
+('Comando Universal Infravermelho Genius',10,1),
+('Comando Universal Inteligente C/Transformers Autobots',12,3),
+('Comando Inteligente SPC Horus 90º Infravermelhos Universal',7,2),
+('Comando Inteligente SPC Horus 45º Infravermelhos Universal',1,2);
 
 --INSERT EspecificacoesDispositivoBluetooth
 INSERT INTO EspecificacoesDispositivoBluetooth(nome, idModelo, versaoBluetooth, alcance) VALUES 
@@ -307,18 +294,18 @@ INSERT INTO EspecificacoesDispositivoBluetooth(nome, idModelo, versaoBluetooth, 
 ('Câmera','9.0',40);
 INSERT INTO EspecificacoesDispositivoBluetooth(nome, idModelo, versaoBluetooth, alcance, velocidadeMax) VALUES ('TV',16,'4.0.0',18,200);
 
---INSERT DispositivoWifi
-INSERT INTO DispositivoWifi(nome,idModelo) VALUES 
-('TV',6),
-('TV',7),
-('Interruptor',10),
-('TV',6),
-('Sensor',11),
-('TV',1),
-('TV',2),
-('Interruptor',3),
-('TV',2),
-('Sensor',5);
+--INSERT DispositivoBluetooth
+INSERT INTO DispositivoBluetooth(nome,idModelo,idAssistente) VALUES 
+('Lâmpada',8,3),
+('Lâmpada',9,4),
+('Headphone',15,3),
+('TV',16,2),
+('Lâmpada',10,3),
+('Lâmpada',11,4),
+('Headphone',10,3),
+('Câmera',60,3),
+('Câmera',90,4),
+('TV',1,2);
 
 --INSERT EspecificacoesDispositivoWifi
 INSERT INTO EspecificacoesDispositivoWifi(nome,idModelo,alcance,velocidadeMax,frequencia) VALUES 
@@ -332,18 +319,18 @@ INSERT INTO EspecificacoesDispositivoWifi(nome,idModelo,alcance,frequencia) VALU
 ('Interruptor',3, 4, 30),
 ('Sensor',5, 15, 25);
 
---INSERT DispositivoInfravermelho
-INSERT INTO DispositivoInfravermelho(idDispositivo, nome, idModelo) VALUES 
-(1,'Ar-Condicionado',12),
-(2,'Caixa de som',13),
-(3,'Ventilador',14),
-(4,'Ar-Condicionado',1),
-(5,'Caixa de som',1),
-(6,'Ventilador',1),
-(7,'Ar-Condicionado',2),
-(8,'Caixa de som',3),
-(9,'Ventilador',4),
-(10,'Caixa de som',5);
+--INSERT DispositivoWifi
+INSERT INTO DispositivoWifi(nome,idModelo) VALUES 
+('TV',6),
+('TV',7),
+('Interruptor',10),
+('TV',6),
+('Sensor',11),
+('TV',1),
+('TV',2),
+('Interruptor',3),
+('TV',2),
+('Sensor',5);
 
 --INSERT EspecificacoesDispositivoInfravermelho
 INSERT INTO EspecificacoesDispositivoInfravermelho(nome, idModelo ,frequencia) VALUES 
@@ -357,6 +344,19 @@ INSERT INTO EspecificacoesDispositivoInfravermelho(nome, idModelo ,frequencia) V
 ('Caixa de som',3,9800),
 ('Ventilador',4,4000),
 ('Caixa de som',5,3500);
+
+--INSERT DispositivoInfravermelho
+INSERT INTO DispositivoInfravermelho(idDispositivo, nome, idModelo) VALUES 
+(1,'Ar-Condicionado',12),
+(2,'Caixa de som',13),
+(3,'Ventilador',14),
+(4,'Ar-Condicionado',1),
+(5,'Caixa de som',1),
+(6,'Ventilador',1),
+(7,'Ar-Condicionado',2),
+(8,'Caixa de som',3),
+(9,'Ventilador',4),
+(10,'Caixa de som',5);
 
 --INSERT Grupo
 INSERT INTO Grupo(nome, qtdDispositivosAssociados, idCasa) VALUES 
