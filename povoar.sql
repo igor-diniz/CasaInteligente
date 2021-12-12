@@ -34,13 +34,14 @@ INSERT INTO Freguesia (nome, idConcelho) VALUES
 ('Preston Hollow', 4),
 ('Les Halles', 5);
 
---INSERT Casa
-INSERT INTO Casa(endereco,numero, orientacaoSolar, qtdComodos) VALUES 
-('rua da areosa',155, 'N', 3),
-('rua da areosa',130, 'NE', 2),
-('rua arquiteto lobão vital',25, 'L', 3),
-('rua hill de moraes',166, 'O', 4),
-('Avenida Abelardo Bueno',2510, 'SE', 5);
+--INSERT CodigoPostal
+INSERT INTO CodigoPostal VALUES 
+('4200083', 'Portugal'),
+('4200089', 'Portugal'),
+('4815549', 'Portugal'), 
+('60811760', 'Brasil'), 
+('07730', 'Estados Unidos'),
+('22775040', 'Brasil');
 
 --INSERT Morada
 INSERT INTO Morada VALUES 
@@ -51,14 +52,14 @@ INSERT INTO Morada VALUES
 ('baker street', 122, '07730'),
 ('Avenida Abelardo Bueno', 2510, '22775040');
 
---INSERT CodigoPostal
-INSERT INTO CodigoPostal VALUES 
-('4200083', 'Portugal'),
-('4200089', 'Portugal'),
-('4815549', 'Portugal'), 
-('60811760', 'Brasil'), 
-('07730', 'Estados Unidos'),
-('22775040', 'Brasil');
+
+--INSERT Casa
+INSERT INTO Casa(endereco,numero, orientacaoSolar, qtdComodos) VALUES 
+('rua da areosa',155, 'N', 3),
+('rua da areosa',130, 'NE', 2),
+('rua arquiteto lobão vital',25, 'L', 3),
+('rua hill de moraes',166, 'O', 4),
+('Avenida Abelardo Bueno',2510, 'SE', 5);
 
 --INSERT Utilizador
 INSERT INTO Utilizador VALUES 
@@ -176,17 +177,17 @@ INSERT INTO AssistenteVirtual VALUES
 (4, 'Siri', 'Mandarim', 12, 4, 1, 6),
 (5, 'Cortana', 'Russo', 7, 5, 5, 7);
 
---INSERT ComandoInfravermelho
-INSERT INTO ComandoInfravermelho(nome, idModelo, idAplicacao) VALUES 
-('Comando Universal Infravermelho Smart',17,1),
-('Comando Universal Inteligente C/Transformad Nedis',18,3),
-('Comando Inteligente SPC Horus 360º Infravermelhos Universal',19,2);
-
 --INSERT EspecificacoesComandoInfravermelho
 INSERT INTO EspecificacoesComandoInfravermelho(nome, idModelo, alcance, frequencia) VALUES 
 ('Comando Universal Infravermelho Smart',17,25,2400),
 ('Comando Universal Inteligente C/Transformad Nedis',18,28,2400),
 ('Comando Inteligente SPC Horus 360º Infravermelhos Universal',19,30,5000);
+
+--INSERT ComandoInfravermelho
+INSERT INTO ComandoInfravermelho(nome, idModelo, idAplicacao) VALUES 
+('Comando Universal Infravermelho Smart',17,1),
+('Comando Universal Inteligente C/Transformad Nedis',18,3),
+('Comando Inteligente SPC Horus 360º Infravermelhos Universal',19,2);
 
 --INSERT DispositivoBluetooth
 INSERT INTO DispositivoBluetooth(nome,idModelo,idAssistente) VALUES 

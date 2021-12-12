@@ -51,7 +51,8 @@ CREATE TABLE Casa
   numero INTEGER NOT NULL,
   orientacaoSolar CHAR(2) NOT NULL,
   qtdComodos INTEGER NOT NULL,
-  CONSTRAINT Casa_PK PRIMARY KEY (idCasa)
+  CONSTRAINT Casa_PK PRIMARY KEY (idCasa),
+  CONSTRAINT Casa_Morada_FK1 FOREIGN KEY (endereco,numero) REFERENCES Morada(endereco,numero)
 );
 
 --TABELA Morada:
@@ -61,7 +62,9 @@ CREATE TABLE Morada
   endereco TEXT,
   numero INTEGER,
   codigoPostal TEXT NOT NULL,
-  CONSTRAINT Morada_PK PRIMARY KEY (numero, endereco)
+  CONSTRAINT Morada_PK PRIMARY KEY (endereco, numero),
+  CONSTRAINT Morada_CodigoPostal_FK1 FOREIGN KEY (codigoPostal) REFERENCES CodigoPostal(codigoPostal)
+
 );
 
 --TABELA CodigoPostal:
@@ -221,7 +224,8 @@ CREATE TABLE ComandoInfravermelho
   CONSTRAINT ComandoInfravermelho_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo) 
   ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT ComandoInfravermelho_idAplicacao_FK2 FOREIGN KEY (idAplicacao) REFERENCES Aplicacao(idAplicacao) 
-  ON DELETE SET NULL ON UPDATE CASCADE
+  ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT ComandoInfravermelho_Especificacoes_FK1 FOREIGN KEY (nome,idModelo) REFERENCES EspecificacoesComandoInfravermelho(nome,idModelo)
 );
 
 --TABELA EspecificacoesComandoInfravermelho :
@@ -235,6 +239,7 @@ CREATE TABLE EspecificacoesComandoInfravermelho
   CONSTRAINT EspecificacoesComandoInfravermelho_PK PRIMARY KEY (nome, idModelo),
   CONSTRAINT EspecificacoesComandoInfravermelho_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo) 
   ON DELETE CASCADE ON UPDATE CASCADE
+
 );
 
 --TABELA DispositivoBluetooth:
@@ -249,7 +254,8 @@ CREATE TABLE DispositivoBluetooth
   CONSTRAINT DispositivoBluetooth_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo) 
   ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT DispositivoBluetooth_idAssistente_FK2 FOREIGN KEY (idAssistente) REFERENCES AssistenteVirtual(idAssistente) 
-  ON DELETE SET NULL ON UPDATE CASCADE
+  ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT DispositivoBluetooth_Especificacoes_FK1 FOREIGN KEY (nome,idModelo) REFERENCES EspecificacoesDispositivoBluetooth(nome,idModelo)
 );
 
 --TABELA EspecificacoesDispositivoBluetooth:
@@ -275,7 +281,8 @@ CREATE TABLE DispositivoWifi
   idModelo INTEGER,
   CONSTRAINT DispositivoWifi_PK PRIMARY KEY (idDispositivo),
   CONSTRAINT DispositivoWifi_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
-  ON DELETE SET NULL ON UPDATE CASCADE
+   ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT DispositivoWifi_Especificacoes_FK1 FOREIGN KEY (nome,idModelo) REFERENCES EspecificacoesDispositivoWifi(nome,idModelo)
 );
 
 --TABELA EspecificacoesDispositivoWifi:
@@ -301,7 +308,9 @@ CREATE TABLE DispositivoInfravermelho
   idModelo INTEGER,
   CONSTRAINT DispositivoInfravermelho_PK PRIMARY KEY (idDispositivo),
   CONSTRAINT DispositivoInfravermelho_idModelo_FK1 FOREIGN KEY (idModelo) REFERENCES Modelo(idModelo)
-  ON DELETE SET NULL ON UPDATE CASCADE
+  ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT DispositivoInfravermelho_Especificacoes_FK1 FOREIGN KEY (nome,idModelo) REFERENCES EspecificacoesDispositivoInfravermelho
+  
 );
 
 --TABELA EspecificacoesDispositivoInfravermelho:
