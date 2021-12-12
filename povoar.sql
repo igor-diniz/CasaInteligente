@@ -123,7 +123,6 @@ INSERT INTO CasaUtilizador VALUES
 (8, 965485234),
 (10, 123987456);
 
-
 --INSERT Idioma
 INSERT INTO Idioma VALUES 
 ('Português'),
@@ -384,7 +383,6 @@ INSERT INTO GrupoDispositivoBluetooth VALUES
 (3,3),
 (4,4);
 
-
 --INSERT GrupoDispositivoWifi
 INSERT INTO GrupoDispositivoWifi VALUES 
 (1,2),
@@ -397,6 +395,7 @@ INSERT INTO GrupoDispositivoWifi VALUES
 (5,9),
 (1,6),
 (1,7);
+
 --INSERT GrupoDispositivoInfravermelho
 INSERT INTO GrupoDispositivoInfravermelho VALUES 
 (1,1),
