@@ -182,7 +182,7 @@ CREATE TABLE Modelo
   
 );
 
---TABELA AssitenteVirtual :
+--TABELA AssitenteVirtual:
 DROP TABLE IF EXISTS AssistenteVirtual;
 CREATE TABLE AssistenteVirtual
 (
