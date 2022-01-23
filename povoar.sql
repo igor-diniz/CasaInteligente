@@ -43,7 +43,7 @@ INSERT INTO Concelho (idConcelho, nome, idDistrito) VALUES
 
 --INSERT Freguesia
 INSERT INTO Freguesia (idFreguesia, nome, idConcelho) VALUES 
-(1, 'Muro', 1), 
+(1, 'Paranhos', 1), 
 (2, 'Conde', 2), 
 (3, 'Edson Queiroz', 3), 
 (4, 'Preston Hollow', 4), 
@@ -55,18 +55,18 @@ INSERT INTO Freguesia (idFreguesia, nome, idConcelho) VALUES
 (10, 'Copacabana', 10);
 
 --INSERT CodigoPostal
-INSERT INTO CodigoPostal(codigoPostal, nomePais) VALUES 
-('4200083', 'Portugal'), 
-('4200089', 'Portugal'), 
-('4815549', 'Portugal'), 
-('60811760', 'Brasil'), 
-('07730', 'Estados Unidos'), 
-('02571BO', 'Bolivia'), 
-('97225AN', 'Angola'), 
-('30390', 'Brasil'), 
-('40028922', 'Brasil'), 
-('123789', 'Brasil'), 
-('22775040', 'Brasil');
+INSERT INTO CodigoPostal(codigoPostal, idFreguesia) VALUES 
+('4200083', 1), 
+('4200089', 2), 
+('4815549', 3), 
+('60811760', 4), 
+('07730', 5), 
+('02571BO', 6), 
+('97225AN', 7), 
+('30390', 8), 
+('40028922', 9), 
+('123789', 10), 
+('22775040', 10);
 
 --INSERT Morada
 INSERT INTO Morada (endereco, numero, codigoPostal) VALUES 
@@ -84,18 +84,18 @@ INSERT INTO Morada (endereco, numero, codigoPostal) VALUES
 ('avenida abelardo bueno', 2510, '22775040');
 
 --INSERT Casa
-INSERT INTO Casa (idCasa, endereco, numero, orientacaoSolar, qtdComodos) VALUES 
-(1, 'rua da areosa', 155, 'N', 3), 
-(2, 'rua da areosa', 130, 'NE', 2), 
-(3, 'rua arquitecto lobão vital', 25, 'L', 3), 
-(4, 'rua hill de moraes', 166, 'O', 4), 
-(5, 'rua maria dias hog', 15, 'N', 3), 
-(6, 'avenida cruzeiro do sul', 130, 'NE', 2), 
-(7, 'rua inventadus agoris', 25, 'L', 3), 
-(8, 'avenida capitão nascimento', 254, 'O', 4), 
-(9, 'rua ian jumas', 169, 'O', 4), 
-(10, 'rua da base de dados', 185, 'O', 4), 
-(11, 'avenida abelardo bueno', 2510, 'SE', 5);
+INSERT INTO Casa (idCasa, endereco, numero, orientacaoSolar, qtdComodos, areaTotal) VALUES 
+(1, 'rua da areosa', 155, 'N', 3, 20), 
+(2, 'rua da areosa', 130, 'NE', 2, 50), 
+(3, 'rua arquitecto lobão vital', 25, 'L', 3, 100), 
+(4, 'rua hill de moraes', 166, 'O', 4, 70), 
+(5, 'rua maria dias hog', 15, 'N', 3, 35), 
+(6, 'avenida cruzeiro do sul', 130, 'NE', 2, 62), 
+(7, 'rua inventadus agoris', 25, 'L', 3, 80), 
+(8, 'avenida capitão nascimento', 254, 'O', 4, 25), 
+(9, 'rua ian jumas', 169, 'O', 4, 30), 
+(10, 'rua da base de dados', 185, 'O', 4, 30), 
+(11, 'avenida abelardo bueno', 2510, 'SE', 5, 20);
 
 --INSERT Utilizador
 INSERT INTO Utilizador (nif, nome, dob, nacionalidade) VALUES 
@@ -106,7 +106,7 @@ INSERT INTO Utilizador (nif, nome, dob, nacionalidade) VALUES
 (908361726, 'Michael Jackson', '1958-08-29', 'Estados Unidos'), 
 (744584662, 'Yudi Playstation', '1990-10-22', 'Brasil'), 
 (746544243, 'Rosabel Whiskin', '1967-07-30', 'China'), 
-(852937412, 'Jena Schlagman', '2014-09-11', 	'Bolivia'), 
+(852937412, 'Jena Schlagman', '2014-09-11', 'Bolivia'), 
 (965485234, 'Finn Vasler', '1973-04-20', 'Angola'), 
 (123987456, 'Marty Bechley', '1996-03-28', 'Bolivia');
 
@@ -158,11 +158,11 @@ INSERT INTO TipoUtilizador(nif, idAplicacao) VALUES
 (782459137, 1), 
 (908361726, 4), 
 (746544243, 2), 
-(852937412, 2), 
+(852937412, 1), 
 (965485234, 1), 
 (123987456, 4), 
-(744584662, 4);
-INSERT INTO TipoUtilizador VALUES (744584663, 2, 1);
+(744584662, 1);
+INSERT INTO TipoUtilizador VALUES (744584663, 1, 1);
 
 --INSERT Acao
 INSERT INTO Acao (nome) VALUES 
@@ -201,7 +201,7 @@ INSERT INTO GatilhoAcao (idGatilho, nomeAcao) VALUES
 (4, 'diminuir volume'), 
 (10, 'trancar porta'), 
 (9, 'trancar porta'), 
-(3, 'desligar ar-condicionado');
+(3, 'ligar ar-condicionado');
 
 --INSERT Marca
 INSERT INTO Marca (idMarca, nome) VALUES 
@@ -311,13 +311,13 @@ INSERT INTO DispositivoBluetooth(idDispositivo, nome, idModelo, idAssistente) VA
 INSERT INTO EspecificacoesDispositivoWiFi(nome, idModelo, alcance, velocidadeMax, frequencia) VALUES 
 ('TV', 6, 10, 100, 60), 
 ('TV', 7, 12, 200, 60), 
-('TV', 1, 15, 300, 75), 
-('TV', 2, 10, 150, 75);
+('TV', 17, 15, 300, 75), 
+('TV', 8, 10, 150, 75);
 INSERT INTO EspecificacoesDispositivoWiFi(nome, idModelo, alcance, frequencia) VALUES 
 ('Interruptor', 10, 8, 60), 
 ('Sensor', 11, 30, 50), 
 ('Interruptor', 3, 4, 30), 
-('Sensor', 5, 15, 25);
+('Sensor', 19, 15, 25);
 
 --INSERT DispositivoWiFi
 INSERT INTO DispositivoWiFi(idDispositivo, nome, idModelo) VALUES 
@@ -326,11 +326,11 @@ INSERT INTO DispositivoWiFi(idDispositivo, nome, idModelo) VALUES
 (3, 'Interruptor', 10), 
 (4, 'TV', 6), 
 (5, 'Sensor', 11), 
-(6, 'TV', 1), 
-(7, 'TV', 2), 
-(8, 'Interruptor', 3), 
-(9, 'TV', 2), 
-(10, 'Sensor', 5);
+(6, 'TV', 6), 
+(7, 'TV', 7), 
+(8, 'Interruptor', 10), 
+(9, 'TV', 8), 
+(10, 'Sensor', 19);
 
 --INSERT EspecificacoesDispositivoInfravermelho
 INSERT INTO EspecificacoesDispositivoInfravermelho(nome, idModelo , frequencia) VALUES 

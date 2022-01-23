@@ -44,9 +44,9 @@ DROP TABLE IF EXISTS CodigoPostal;
 CREATE TABLE CodigoPostal
 (
   codigoPostal TEXT, --Existem países que possuem letras no código postal (India, Irlanda ...)
-  nomePais TEXT NOT NULL, 
+  idFreguesia INTEGER, 
   CONSTRAINT CodigoPostal_PK PRIMARY KEY (codigoPostal), 
-  CONSTRAINT CodigoPostal_nomePais_FK1 FOREIGN KEY (nomePais) REFERENCES Pais(nome) 
+  CONSTRAINT CodigoPostal_nomeFreguesia_FK1 FOREIGN KEY (idFreguesia) REFERENCES Freguesia(idFreguesia) 
 );
 
 --TABELA Morada:
@@ -69,6 +69,7 @@ CREATE TABLE Casa
   numero INTEGER NOT NULL, 
   orientacaoSolar CHAR(2) NOT NULL, 
   qtdComodos INTEGER NOT NULL, 
+  areaTotal INTEGER NOT NULL,
   CONSTRAINT Casa_PK PRIMARY KEY (idCasa), 
   CONSTRAINT Casa_Morada_FK1 FOREIGN KEY (endereco, numero) REFERENCES Morada(endereco, numero)
 );
