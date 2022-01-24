@@ -142,9 +142,9 @@ INSERT INTO Idioma (nome) VALUES
 INSERT INTO Aplicacao (idAplicacao, nome, versao, idioma) VALUES 
 (1, 'Amazon Alexa', '2.2.453031.0', 'Português'), 
 (2, 'Amazon Alexa', '2.2.448943.0', 'Inglês'), 
-(3, 'Google Home', '2.46.106', 'Espanhol'), 
+(3, 'Google Home', '2.46.105', 'Espanhol'), 
 (4, 'Google Home', '2.46.106', 'Inglês'), 
-(5, 'Google Home', '2.46.106', 'Português'), 
+(5, 'Google Home', '2.46.107', 'Português'), 
 (6, 'Apple Siri', '8.3', 'Mandarim'), 
 (7, 'Microsoft Cortana', '2.9.11.2037', 'Russo'), 
 (8, 'Tuya Smart', '3.33.1', 'Português'), 
