@@ -243,16 +243,16 @@ INSERT INTO Modelo (idModelo, nome , idMarca) VALUES
 
 --INSERT AssistenteVirtual
 INSERT INTO AssistenteVirtual (idAssistente, nome, idioma, qtdDispositivosAssociados, idCasa, idModelo, idAplicacao) VALUES 
-(1, 'Google Assistant', 'Português', 5, 1, 3, 5), 
-(2, 'Google Assistant', 'Inglês', 7, 2, 3, 4), 
-(3, 'Alexa', 'Inglês', 10, 3, 2, 2), 
-(4, 'Siri', 'Mandarim', 12, 4, 1, 6), 
-(5, 'Cortana', 'Russo', 7, 5, 5, 7), 
-(6, 'Google Assistant', 'Hindi', 7, 10, 9, 9), 
-(7, 'Google Assistant', 'Guaraní', 7, 8, 3, 10), 
-(8, 'Alexa', 'Português', 8, 6, 4, 8), 
-(9, 'Siri', 'Espanhol', 4, 7, 2, 3), 
-(10, 'Cortana', 'Português', 8, 9, 2, 1);
+(1, 'Google Assistant', 'Português', 0, 1, 3, 5), 
+(2, 'Google Assistant', 'Inglês', 0, 2, 3, 4), 
+(3, 'Alexa', 'Inglês', 0, 3, 2, 2), 
+(4, 'Siri', 'Mandarim', 0, 4, 1, 6), 
+(5, 'Cortana', 'Russo', 0, 5, 5, 7), 
+(6, 'Google Assistant', 'Hindi', 0, 10, 9, 9), 
+(7, 'Google Assistant', 'Guaraní', 0, 8, 3, 10), 
+(8, 'Alexa', 'Português', 0, 6, 4, 8), 
+(9, 'Siri', 'Espanhol', 0, 7, 2, 3), 
+(10, 'Cortana', 'Português', 0, 9, 2, 1);
 
 --INSERT EspecificacoesComandoInfravermelho
 INSERT INTO EspecificacoesComandoInfravermelho (nome, idModelo, alcance, frequencia) VALUES 
@@ -360,16 +360,16 @@ INSERT INTO DispositivoInfravermelho(idDispositivo, nome, idModelo) VALUES
 
 --INSERT Grupo
 INSERT INTO Grupo(idGrupo, nome, qtdDispositivosAssociados, idCasa) VALUES 
-(1, 'quarto', 4, 1), 
-(2, 'cozinha', 6, 1), 
+(1, 'quarto', 0, 1), 
+(2, 'cozinha', 0, 1), 
 (3, 'sala', 9, 2), 
-(4, 'cozinha', 3, 2), 
-(5, 'casa de banho', 2, 1), 
-(6, 'luzes da casa', 4, 3), 
-(7, 'portas da casa', 6, 3), 
-(8, 'coisas da casa', 9, 4), 
-(9, 'batatinha quente 123', 3, 2), 
-(10, 'casa de banho 2, a sanita contra-ataca', 2, 1);
+(4, 'cozinha', 0, 2), 
+(5, 'casa de banho', 0, 1), 
+(6, 'luzes da casa', 0, 3), 
+(7, 'portas da casa', 0, 3), 
+(8, 'coisas da casa', 0, 4), 
+(9, 'batatinha quente 123', 0, 2), 
+(10, 'casa de banho 2, a sanita contra-ataca', 0, 1);
 
 --INSERT GrupoDispositivoBluetooth
 INSERT INTO GrupoDispositivoBluetooth (idGrupo, idDispositivo) VALUES 
@@ -410,6 +410,18 @@ INSERT INTO GrupoDispositivoInfravermelho (idGrupo, idDispositivo) VALUES
 (1, 6), 
 (4, 3);
 
+--Calcula quantidade de dispositivos associados a cada grupo 
+--e atualiza o atributo qtdDispositivosAssociados da classe Grupo
+UPDATE Grupo
+SET qtdDispositivosAssociados =
+ (SELECT COUNT(*) FROM
+    (SELECT * FROM GrupoDispositivoBluetooth
+        UNION ALL
+     SELECT * FROM GrupoDispositivoWiFi
+        UNION ALL
+     SELECT * FROM GrupoDispositivoInfravermelho) T WHERE Grupo.idGrupo = T.idGrupo)
+WHERE qtdDispositivosAssociados = 0;
+
 --INSERT DispositivoBluetoothAcaoAssistente
 INSERT INTO DispositivoBluetoothAcaoAssistente(idDispositivo, nomeAcao, idAssistente) VALUES 
 (1, 'ligar luzes', 3), 
@@ -428,26 +440,41 @@ INSERT INTO DispositivoWiFiAcaoAssistente(idDispositivo, nomeAcao, idAssistente)
 (1, 'ligar TV', 2), 
 (5, 'ligar ar-condicionado', 3), 
 (5, 'desligar ar-condicionado', 3), 
-(6, 'ligar TV', 2), 
-(7, 'ligar TV', 2), 
-(9, 'ligar ar-condicionado', 3), 
-(8, 'desligar ar-condicionado', 3), 
-(3, 'ligar TV', 2), 
-(4, 'ligar TV', 2), 
-(2, 'ligar ar-condicionado', 3);
+(6, 'ligar TV', 4), 
+(7, 'ligar TV', 4), 
+(9, 'ligar ar-condicionado', 5), 
+(8, 'desligar ar-condicionado', 6), 
+(3, 'ligar TV', 7), 
+(4, 'ligar TV', 8), 
+(2, 'ligar ar-condicionado', 9);
 
 --INSERT DispositivoInfravermelhoAcaoAssistente
 INSERT INTO DispositivoInfravermelhoAcaoAssistente(idDispositivo, nomeAcao, idAssistente) VALUES 
-(1, 'ligar ar-condicionado', 3), 
-(1, 'desligar ar-condicionado', 3), 
-(2, 'ligar som', 2), 
-(2, 'ligar luzes', 2), 
-(5, 'ligar luzes', 5), 
-(6, 'desligar luzes', 2), 
-(9, 'ligar ar-condicionado', 3), 
-(8, 'desligar ar-condicionado', 3), 
-(3, 'ligar TV', 2), 
-(2, 'aumentar volume', 2);
+(1, 'ligar ar-condicionado', 10), 
+(1, 'desligar ar-condicionado', 10), 
+(2, 'ligar som', 1), 
+(2, 'ligar luzes', 1), 
+(5, 'ligar luzes', 7), 
+(6, 'desligar luzes', 5), 
+(9, 'ligar ar-condicionado', 2), 
+(8, 'desligar ar-condicionado', 2), 
+(3, 'ligar TV', 1), 
+(2, 'aumentar volume', 1);
+
+--Calcula quantidade de dispositivos associados a cada assistente virtual 
+--e atualiza o atributo qtdDispositivosAssociados da classe AssistenteVirtual
+UPDATE AssistenteVirtual
+SET qtdDispositivosAssociados =
+ (SELECT COUNT(*) FROM
+    (SELECT idDispositivo, idAssistente FROM DispositivoInfravermelhoAcaoAssistente
+        UNION ALL
+     SELECT idDispositivo, idAssistente FROM DispositivoWiFiAcaoAssistente
+        UNION ALL
+     SELECT idDispositivo, idAssistente FROM DispositivoBluetoothAcaoAssistente
+     ) T 
+     WHERE AssistenteVirtual.idAssistente = T.idAssistente
+ )
+WHERE qtdDispositivosAssociados = 0;
 
 --INSERT DispositivoWiFiAplicacao
 INSERT INTO DispositivoWifiAplicacao (idDispositivo, idAplicacao) VALUES 
