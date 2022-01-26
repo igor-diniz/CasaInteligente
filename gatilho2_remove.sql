@@ -1,3 +1,5 @@
+PRAGMA foreign_keys = ON;
+
 --Remove gatilhos referentes à classe Grupo
 DROP TRIGGER IF EXISTS IncrementaQtdDispositivosBluetoothG;
 DROP TRIGGER IF EXISTS IncrementaQtdDispositivosWiFiG;

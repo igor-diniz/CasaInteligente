@@ -1,8 +1,7 @@
--- faça select * from grupo;
--- para ver nova qtdDispositivosAssociados após executar .read gatilho2_verifica.sql
+PRAGMA foreign_keys = ON;
 
--- faça select * from AssistenteVirtual;
--- para ver nova qtdDispositivosAssociados após executar .read gatilho2_verifica.sql
+SELECT * FROM grupo;
+SELECT * FROM AssistenteVirtual;
 
 
 --Inserts referentes à classe Grupo
@@ -46,3 +45,7 @@ INSERT INTO DispositivoWiFiAcaoAssistente(idDispositivo, nomeAcao, idAssistente)
 INSERT INTO DispositivoInfravermelhoAcaoAssistente(idDispositivo, nomeAcao, idAssistente) VALUES 
 (10, 'ligar ar-condicionado', 7), 
 (10, 'desligar ar-condicionado', 7);
+
+
+SELECT * FROM grupo;
+SELECT * FROM AssistenteVirtual;

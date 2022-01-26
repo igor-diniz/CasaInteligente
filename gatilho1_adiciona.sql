@@ -1,4 +1,7 @@
+PRAGMA foreign_keys = ON;
+
 --Comando Infravermelho e Dispositivo Infravermelho devem ter frequências iguais quando conectados entre si
+DROP trigger IF EXISTS FrequenciasIguais;
 CREATE Trigger FrequenciasIguais
 BEFORE INSERT ON DispositivoInfraComando
 FOR EACH ROW 
@@ -20,6 +23,7 @@ END;
 
 
 -- Assistente Virtual e sua aplicação devem ter o mesmo idioma
+DROP trigger IF EXISTS IdiomasIguais;
 CREATE Trigger IdiomasIguais
 BEFORE INSERT ON AssistenteVirtual
 FOR EACH ROW 
